@@ -108,27 +108,26 @@
                             <td>{{ $s->K4 }}</td>
                         </tr>
                         @endforeach
-                        <div class="container">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="panel panel-default">
-                                            <div class="panel-heading">Chart Demo</div>
+                    </tbody>
+                </table>
+                {{$siswa->links()}}
+                <div class="container">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">Chart Demo</div>
 
-                                            <div class="panel-body">
-                                                {!! $chart->html() !!}
-                                            </div>
-                                        </div>
+                                    <div class="panel-body">
+                                        {!! $chart->html() !!}
                                     </div>
                                 </div>
                             </div>
-                            {!! Charts::scripts() !!}
-                            {!! $chart->script() !!}
                         </div>
-                    </tbody>
-
-                </table>
-
+                    </div>
+                    {!! Charts::scripts() !!}
+                    {!! $chart->script() !!}
+                </div>
             </div>
 
         </div>

@@ -2,7 +2,7 @@
 
 namespace App\Exports;
 
-use App\siswa;
+use App\Nilaimu;
 use Maatwebsite\Excel\Concerns\FromCollection;
 
 class SiswaExport implements FromCollection
@@ -12,6 +12,6 @@ class SiswaExport implements FromCollection
     */
     public function collection()
     {
-        return siswa::all();
+        return Nilaimu::all();
     }
 }

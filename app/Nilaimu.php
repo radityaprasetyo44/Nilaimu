@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Nilaimu extends Model
 {
-    //
+    protected $table = 'nilaimus';
 }

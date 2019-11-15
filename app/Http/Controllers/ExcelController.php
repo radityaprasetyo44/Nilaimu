@@ -29,7 +29,9 @@ class ExcelController extends Controller
 
     public function excelExport()
     {
-        return Excel::download(new SiswaExport, 'siswa.xlsx');
+        $date=date("Y-m-d h:i:s", time());
+        $fileName = 'Excel '.$date.'.xlsx';
+        return Excel::download(new SiswaExport, $fileName);
     }
 
     public function import_excel(Request $request)

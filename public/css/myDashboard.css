@@ -29,6 +29,11 @@
     cursor: default;
 }
 
+.mylol{
+    align-items: center;
+    justify-content: center;
+}
+
 /* .my-link{
     background-color: red;
     color: black;
