@@ -22,12 +22,26 @@ Route::get('/home', 'HomeController@index')->name('home');
 //NilaiMu
 
 Route::group(['prefix' => 'api/v1'], function () {
-    
-    Route::get('login', 'NilaimuController@login')->name('login');
-        
-    Route::get('/dashboard', 'NilaimuController@index')->name('dashboard');
 
-    Route::get('/nilai-kelas', 'NilaimuController@nilaiKelas');
+    Route::group(['prefix' => 'auth'], function () {
+
+        Route::get('login', 'NilaimuController@login')->name('login');
+
+        Route::post('checklogin', 'NilaimuController@checklogin')->name('check');
+
+    });
+
+    Route::get('/teacher', 'NilaimuController@teacher')->name('dashboard');  
+
+    Route::get('/student', 'NilaimuController@student');
+
+    Route::get('/my-score', 'NilaimuController@myScore');
+    
+    Route::group(['prefix' => 'event'], function () {
+
+        Route::get('/nilai-kelas', 'NilaimuController@nilaiKelas');  
+
+    });        
 
 });
 

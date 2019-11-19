@@ -98,36 +98,22 @@ $(document).ready(function(){
                         <a href="index.html"><i class="menu-icon fa fa-laptop"></i>Dashboard </a>
                     </li>
                     <li class="menu-title">Nilai</li><!-- /.menu-title -->
-                    <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                            aria-expanded="false"> <i class="menu-icon ti-user"></i>Nilai Ku</a>
-                        <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-puzzle-piece"></i><a href="ui-buttons.html">Buttons</a></li>
-                            <li><i class="fa fa-id-badge"></i><a href="ui-badges.html">Badges</a></li>
-                            <li><i class="fa fa-bars"></i><a href="ui-tabs.html">Tabs</a></li>
-
-                            <li><i class="fa fa-id-card-o"></i><a href="ui-cards.html">Cards</a></li>
-                            <li><i class="fa fa-exclamation-triangle"></i><a href="ui-alerts.html">Alerts</a></li>
-                            <li><i class="fa fa-spinner"></i><a href="ui-progressbar.html">Progress Bars</a></li>
-                            <li><i class="fa fa-fire"></i><a href="ui-modals.html">Modals</a></li>
-                            <li><i class="fa fa-book"></i><a href="ui-switches.html">Switches</a></li>
-                            <li><i class="fa fa-th"></i><a href="ui-grids.html">Grids</a></li>
-                            <li><i class="fa fa-file-word-o"></i><a href="ui-typgraphy.html">Typography</a></li>
-                        </ul>
+                    <li>
+                        <a href="#"> <i class="menu-icon fa fa-user"></i>Nilai Ku</a>
                     </li>
                     <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                            aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Nilai Kelas</a>
+                        <a href="/api/v1/student" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Nilai Kelas</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-table"></i><a href="tables-basic.html">Basic Table</a></li>
-                            <li><i class="fa fa-table"></i><a href="tables-data.html">Data Table</a></li>
+                            <li><i class="fa fa-table"></i><a href="/api/v1/student">XII RPL 1</a></li>
+                            <li><i class="fa fa-table"></i><a href="#">XII RPL 2</a></li>
+                            <li><i class="fa fa-table"></i><a href="#">XII RPL 3</a></li>
+                            <li><i class="fa fa-table"></i><a href="#">XII RPL 4</a></li>
+                            <li><i class="fa fa-table"></i><a href="#">XII RPL 5</a></li>
+                            <li><i class="fa fa-table"></i><a href="#">XII RPL 6</a></li>
                         </ul>
                     </li>
 
                     <li class="menu-title">Aksi</li><!-- /.menu-title -->
-                    <li>
-                        <a href="#"> <i class="menu-icon ti-upload"></i>Import </a>
-                    </li>
                     <li>
                         <a href="/excel/export"> <i class="menu-icon ti-download"></i>Export </a>
                     </li>
@@ -158,76 +144,6 @@ $(document).ready(function(){
                                 <button class="search-close" type="submit"><i class="fa fa-close"></i></button>
                             </form>
                         </div>
-
-                        <div class="dropdown for-notification">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" id="notification"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fa fa-bell"></i>
-                                <span class="count bg-danger">3</span>
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="notification">
-                                <p class="red">You have 3 Notification</p>
-                                <a class="dropdown-item media" href="#">
-                                    <i class="fa fa-check"></i>
-                                    <p>Server #1 overloaded.</p>
-                                </a>
-                                <a class="dropdown-item media" href="#">
-                                    <i class="fa fa-info"></i>
-                                    <p>Server #2 overloaded.</p>
-                                </a>
-                                <a class="dropdown-item media" href="#">
-                                    <i class="fa fa-warning"></i>
-                                    <p>Server #3 overloaded.</p>
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="dropdown for-message">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" id="message"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fa fa-envelope"></i>
-                                <span class="count bg-primary">4</span>
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="message">
-                                <p class="red">You have 4 Mails</p>
-                                <a class="dropdown-item media" href="#">
-                                    <span class="photo media-left"><img alt="avatar"
-                                            src="../../images/avatar/1.jpg"></span>
-                                    <div class="message media-body">
-                                        <span class="name float-left">Jonathan Smith</span>
-                                        <span class="time float-right">Just now</span>
-                                        <p>Hello, this is an example msg</p>
-                                    </div>
-                                </a>
-                                <a class="dropdown-item media" href="#">
-                                    <span class="photo media-left"><img alt="avatar"
-                                            src="../../images/avatar/2.jpg"></span>
-                                    <div class="message media-body">
-                                        <span class="name float-left">Jack Sanders</span>
-                                        <span class="time float-right">5 minutes ago</span>
-                                        <p>Lorem ipsum dolor sit amet, consectetur</p>
-                                    </div>
-                                </a>
-                                <a class="dropdown-item media" href="#">
-                                    <span class="photo media-left"><img alt="avatar"
-                                            src="../../images/avatar/3.jpg"></span>
-                                    <div class="message media-body">
-                                        <span class="name float-left">Cheryl Wheeler</span>
-                                        <span class="time float-right">10 minutes ago</span>
-                                        <p>Hello, this is an example msg</p>
-                                    </div>
-                                </a>
-                                <a class="dropdown-item media" href="#">
-                                    <span class="photo media-left"><img alt="avatar"
-                                            src="../../images/avatar/4.jpg"></span>
-                                    <div class="message media-body">
-                                        <span class="name float-left">Rachel Santos</span>
-                                        <span class="time float-right">15 minutes ago</span>
-                                        <p>Lorem ipsum dolor sit amet, consectetur</p>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
                     </div>
 
                     <div class="user-area dropdown float-right">
@@ -237,14 +153,11 @@ $(document).ready(function(){
                         </a>
 
                         <div class="user-menu dropdown-menu">
-                            <a class="nav-link" href="#"><i class="fa fa- user"></i>My Profile</a>
+                            <a class="nav-link" href="#"><i class="fa fa- user"></i>Lihat Profil</a>
 
-                            <a class="nav-link" href="#"><i class="fa fa- user"></i>Notifications <span
-                                    class="count">13</span></a>
+                            <a class="nav-link" href="#"><i class="fa fa -cog"></i>Pengaturan</a>
 
-                            <a class="nav-link" href="#"><i class="fa fa -cog"></i>Settings</a>
-
-                            <a class="nav-link" href="/api/v1/login"><i class="fa fa-power -off"></i>Logout</a>
+                            <a class="nav-link" href="/api/v1/auth/login"><i class="fa fa-power -off"></i>Keluar</a>
                         </div>
                     </div>
 
@@ -260,23 +173,23 @@ $(document).ready(function(){
                     <nav>
                         <div class="nav nav-tabs" id="nav-tab" role="tablist">
                             <a class="nav-item nav-link active" id="custom-nav-home-tab" data-toggle="tab"
-                                href="#" role="tab" aria-controls="custom-nav-1" aria-selected="true">XII
-                                RPL 1</a>
+                                href="#" role="tab" aria-controls="custom-nav-1" aria-selected="true">
+                                Agama</a>
                             <a class="nav-item nav-link" id="custom-nav-profile-tab" data-toggle="tab"
                                 href="#R2" role="tab" aria-controls="custom-nav-2"
-                                aria-selected="false">XII RPL 2</a>
+                                aria-selected="false">Matematika</a>
                             <a class="nav-item nav-link" id="custom-nav-contact-tab" data-toggle="tab"
                                 href="#R3" role="tab" aria-controls="custom-nav-3"
-                                aria-selected="false">XII RPL 3</a>
+                                aria-selected="false">B. Indonesia</a>
                             <a class="nav-item nav-link" id="custom-nav-contact-tab" data-toggle="tab"
                                 href="#R4" role="tab" aria-controls="custom-nav-4"
-                                aria-selected="false">XII RPL 4</a>
+                                aria-selected="false">B.Inggris</a>
                             <a class="nav-item nav-link" id="custom-nav-contact-tab" data-toggle="tab"
                                 href="#R5" role="tab" aria-controls="custom-nav-5"
-                                aria-selected="false">XII RPL 5</a>
+                                aria-selected="false">Produktif</a>
                             <a class="nav-item nav-link" id="custom-nav-contact-tab" data-toggle="tab"
                                 href="#R6" role="tab" aria-controls="custom-nav-6"
-                                aria-selected="false">XII RPL 6</a>
+                                aria-selected="false">PPKN</a>
                         </div>
                     </nav>
                 </div>
@@ -292,7 +205,7 @@ $(document).ready(function(){
                                     </div>
                                     <div class="stat-content">
                                         <div class="text-left dib">
-                                            <div class="stat-text"><span class="count">{{$k1}}</span></div>
+                                            <div class="stat-text"><span class="count">{{$k['1']}}</span></div>
                                             <div class="stat-heading">Kompetensi 1</div>
                                         </div>
                                     </div>
@@ -310,7 +223,7 @@ $(document).ready(function(){
                                     </div>
                                     <div class="stat-content">
                                         <div class="text-left dib">
-                                            <div class="stat-text"><span class="count">{{$k2}}</span></div>
+                                            <div class="stat-text"><span class="count">{{$k['2']}}</span></div>
                                             <div class="stat-heading">Kompetensi 2</div>
                                         </div>
                                     </div>
@@ -328,7 +241,7 @@ $(document).ready(function(){
                                     </div>
                                     <div class="stat-content">
                                         <div class="text-left dib">
-                                            <div class="stat-text"><span class="count">{{$k3}}</span></div>
+                                            <div class="stat-text"><span class="count">{{$k['3']}}</span></div>
                                             <div class="stat-heading">Kompetensi 3</div>
                                         </div>
                                     </div>
@@ -346,7 +259,7 @@ $(document).ready(function(){
                                     </div>
                                     <div class="stat-content">
                                         <div class="text-left dib">
-                                            <div class="stat-text"><span class="count">{{$k4}}</span></div>
+                                            <div class="stat-text"><span class="count">{{$k['4']}}</span></div>
                                             <div class="stat-heading">Kompetensi 4</div>
                                         </div>
                                     </div>
@@ -357,147 +270,7 @@ $(document).ready(function(){
                 </div>
                 <!-- /Widgets -->
 
-
-                <!-- Orders -->
-                <div class="orders">
-                    <div class="row">
-                        <div class="col-xl-8">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h4 class="box-title">Data Kelas</h4>
-                                </div>
-                                <div class="card-body--">
-                                    <div class="table-stats order-table ov-h">
-                                        <table class="table">
-                                            <thead>
-                                                <tr>
-                                                    <th class="serial">No.</th>
-                                                    <th>Nama</th>
-                                                    <th>Nis</th>
-                                                    <th>K1</th>
-                                                    <th>K2</th>
-                                                    <th>K3</th>
-                                                    <th>K4</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                @php $i = 1 @endphp
-                                                @foreach($nilai as $n)
-                                                <tr>
-                                                    <td class="serial">{{$i++}}</td>
-                                                    <td> <span class="name">{{$n->nama}}</span> </td>
-                                                    <td> <span class="product" style="">{{$n->nis}}</span> </td>
-                                                    <td><span class="count" style="align-items: center;">{{$n->K1}}</span></td>
-                                                    <td><span class="count">{{$n->K2}}</span></td>
-                                                    <td><span class="count">{{$n->K3}}</span></td>
-                                                    <td><span class="count">{{$n->K4}}</span></td>
-                                                </tr>
-                                                @endforeach
-                                            </tbody>
-                                        </table>
-                                    </div> <!-- /.table-stats -->
-                                </div>
-                            </div> <!-- /.card -->
-                            {{$nilai->links()}}
-                        </div> <!-- /.col-lg-8 -->
-
-                        <div class="col-xl-4">
-                            <div class="row">
-                                <div class="col-lg-6 col-xl-12">
-                                    <div class="card br-0">
-                                        <div class="card-body">
-                                            <div class="chart-container ov-h">
-                                                <div id="flotPie1" class="float-chart"></div>
-                                            </div>
-                                        </div>
-                                    </div><!-- /.card -->
-                                </div>
-
-                                <div class="col-lg-6 col-xl-12">
-                                    <div class="card bg-flat-color-3  ">
-                                        <div class="card-body">
-                                            <div id="flotLine5" class="flot-line"></div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div> <!-- /.col-md-4 -->
-                    </div>
-
-                </div>
-                <!-- /.orders -->
-
-                <!--  Traffic  -->
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="box-title">Rentang Kelas</h4>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-8">
-                                    <div class="card-body">
-                                        <!-- <canvas id="TrafficChart"></canvas>   -->
-                                        <div id="traffic-chart" class="traffic-chart"></div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4">
-                                    <div class="card-body">
-                                        <div class="progress-box progress-1">
-                                            <h4 class="por-title">K1</h4>
-                                            <div class="por-txt">78 (78%)</div>
-                                            <div class="progress mb-2" style="height: 5px;">
-                                                <div class="progress-bar bg-flat-color-1" role="progressbar"
-                                                    style="width: 78%;" aria-valuenow="25" aria-valuemin="0"
-                                                    aria-valuemax="100"></div>
-                                            </div>
-                                        </div>
-                                        <div class="progress-box progress-2">
-                                            <h4 class="por-title">K2</h4>
-                                            <div class="por-txt">87 (87%)</div>
-                                            <div class="progress mb-2" style="height: 5px;">
-                                                <div class="progress-bar bg-flat-color-2" role="progressbar"
-                                                    style="width: 87%;" aria-valuenow="25" aria-valuemin="0"
-                                                    aria-valuemax="100"></div>
-                                            </div>
-                                        </div>
-                                        <div class="progress-box progress-2">
-                                            <h4 class="por-title">K3</h4>
-                                            <div class="por-txt">89 (89%)</div>
-                                            <div class="progress mb-2" style="height: 5px;">
-                                                <div class="progress-bar bg-flat-color-3" role="progressbar"
-                                                    style="width: 89%;" aria-valuenow="60" aria-valuemin="0"
-                                                    aria-valuemax="100"></div>
-                                            </div>
-                                        </div>
-                                        <div class="progress-box progress-2">
-                                            <h4 class="por-title">K4</h4>
-                                            <div class="por-txt">51 (51%)</div>
-                                            <div class="progress mb-2" style="height: 5px;">
-                                                <div class="progress-bar bg-flat-color-4" role="progressbar"
-                                                    style="width: 51%;" aria-valuenow="90" aria-valuemin="0"
-                                                    aria-valuemax="100"></div>
-                                            </div>
-                                        </div>
-                                    </div> <!-- /.card-body -->
-                                </div>
-                            </div> <!-- /.row -->
-                            <div class="card-body"></div>
-                        </div>
-                    </div><!-- /# column -->
-                </div>
-                <!--  /Traffic -->
                 <div class="clearfix"></div>
-                <!-- Calender Chart Weather  -->
-                <div class="row">
-                    <div class="col-lg-4 col-md-6">
-                        <div class="card ov-h">
-                            <div id="cellPaiChart" class="float-chart"></div>
-                        </div><!-- /.card -->
-                    </div>
-                </div>
-                <!-- /Calender Chart Weather -->
                 <!-- Modal - Calendar - Add New Event -->
                 <div class="modal fade none-border" id="event-modal">
                     <div class="modal-dialog">
@@ -617,35 +390,35 @@ $(document).ready(function(){
             "use strict";
 
             // Pie chart flotPie1
-            var piedata = [{
-                    label: "Kompetensi 1  .",
-                    data: [
-                        [1, 23]
-                    ],
-                    color: '#5c6bc0'
-                },
-                {
-                    label: "Kompetensi 2",
-                    data: [
-                        [1, 33]
-                    ],
-                    color: '#ef5350'
-                },
-                {
-                    label: "Kompetensi 3",
-                    data: [
-                        [1, 32]
-                    ],
-                    color: '#66bb6a'
-                },
-                {
-                    label: "Kompetensi 4",
-                    data: [
-                        [1, 12]
-                    ],
-                    color: '#ff6600'
-                }
-            ];
+            // var piedata = [{
+            //         label: "Kompetensi 1  .",
+            //         data: [
+            //             [1, 23]
+            //         ],
+            //         color: '#5c6bc0'
+            //     },
+            //     {
+            //         label: "Kompetensi 2",
+            //         data: [
+            //             [1, 33]
+            //         ],
+            //         color: '#ef5350'
+            //     },
+            //     {
+            //         label: "Kompetensi 3",
+            //         data: [
+            //             [1, 32]
+            //         ],
+            //         color: '#66bb6a'
+            //     },
+            //     {
+            //         label: "Kompetensi 4",
+            //         data: [
+            //             [1, 12]
+            //         ],
+            //         color: '#ff6600'
+            //     }
+            // ];
 
             $.plot('#flotPie1', piedata, {
                 series: {

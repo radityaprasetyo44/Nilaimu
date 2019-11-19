@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="../../css/app.css">
-    <link rel="stylesheet" href="../../css/myLogin.css">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/myLogin.css') }}">
     <title>Document</title>
 </head>
 <body>
@@ -54,15 +54,7 @@
                     padding-left: 0.3rem;
                 " onclick="myFunction()" >Lihat password</p>
                 </div>
-                <!-- <input type="submit" class="btn my-3" target="_self" style="
-                    height: 5%;
-                    width: 74.5%;
-                    background-color: black;
-                    color: white;
-                    font-size: 1.5rem;
-                    border-radius: 0.4rem;"
-                    name="" id="" value="Masuk"> -->
-                <a href="dashboard" class="btn my-3" target="_self" style="
+                <a href="/api/v1/teacher" class="btn my-3" target="_self" style="
                     height: 5%;
                     width: 74.5%;
                     background-color: black;
