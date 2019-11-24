@@ -14,16 +14,18 @@
 
         <div class="row" style="margin: 0 auto;">
             <div class="col-md-8" style="
-                width: 90vw; 
-                height: 100vh;
-                background-image:url('{{ asset('images/fortnite.jpg') }}');
+                margin-top: 8%;
+                width: 70vw; 
+                height: 70vh;
+                background-image:url('{{ asset('images/loginIlustration.svg') }}');
                 background-repeat: no-repeat;
                 background-position: center;
             ">
         </div>
 
-        <div class="col">
-        <h1 style="margin-top: 53%; font-size: 1.85rem"><strong>Selamat Datang, Silahkan Masuk!</strong></h1>
+        <div class="col" style="margin-left: -8%;">
+        <img src="{{ asset('images/logoWithText.svg') }}" alt="" style="margin-top: 23%;width: 30vw;height: 20vh;margin-left: -22%">        
+        <h1 style="font-size: 1.85rem; color: #424242;"><strong>Selamat Datang, Silahkan Masuk!</strong></h1>
         <br>
             <form action="dashboard" method="post">
                 <div class="form-group">
@@ -46,18 +48,20 @@
                 }
                 </script>
                 <br>
-                <div style="display: flex; flex-direction: row">
+                <!-- <div style="display: flex; flex-direction: row">
+                <div style="background-color: white;">
                 <input type="checkbox" onclick="myFunction()" class="check"> 
+                </div>
                 <p style="
                     font-size: 1rem;
-                    color: grey;
+                    color: #91DAFE;
                     padding-left: 0.3rem;
                 " onclick="myFunction()" >Lihat password</p>
-                </div>
-                <a href="/api/v1/teacher" class="btn my-3" target="_self" style="
+                </div> -->
+                <a href="/api/v1/teacher" class="btn my-3 loginButton" target="_self" style="
                     height: 5%;
-                    width: 74.5%;
-                    background-color: black;
+                    width: 57.5%;
+                    background-color: #3AC5FE;
                     color: white;
                     font-size: 1.5rem;
                     border-radius: 0.4rem;

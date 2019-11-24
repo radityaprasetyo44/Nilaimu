@@ -90,7 +90,7 @@ $(document).ready(function(){
 
 <body>
     <!-- Left Panel -->
-    <aside id="left-panel" class="left-panel">
+    <aside id="left-panel" class="left-panel" style="margin-top: 1.8%">
         <nav class="navbar navbar-expand-sm navbar-default">
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
@@ -112,7 +112,9 @@ $(document).ready(function(){
                     </li>
                 </ul>
             </div><!-- /.navbar-collapse -->
+            
         </nav>
+        
     </aside>
     <!-- /#left-panel -->
     <!-- Right Panel -->
@@ -121,9 +123,12 @@ $(document).ready(function(){
         <header id="header" class="header">
             <div class="top-left">
                 <div class="navbar-header"  style="margin-left: -1.4rem;">
-                    <!-- <a class="navbar-brand" href="./"><img src="" alt="Logo"></a>
-                    <a class="navbar-brand hidden" href="./"><img src="../../images/logo2.png" alt="Logo"></a> -->
-                    <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a>
+                    <!-- <a class="navbar-brand" href="./"><img src="{{ asset('images/logoWithText.svg') }}" alt="Logo" style="
+                    width: 20vw; 
+                    height: 10vh;
+                    margin-top: -10%"></a> -->
+                    <!-- <a class="navbar-brand hidden" href="./"><img src="../../images/logo2.png" alt="Logo"></a> -->
+                    <a id="menuToggle" class="menutoggle"><i class="fa fa-bars" ></i></a>
                 </div>
             </div>
             <div class="top-right">

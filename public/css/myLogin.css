@@ -18,12 +18,12 @@
 }
 
 .form-control{
-    color: black ;
+    color: #424242 ;
     background: transparent;
     border: none;
     border-bottom: 0.08rem solid grey;
     box-shadow: none;
-    width: 74.5%;
+    width: 57.5%;
 }
 
 .check{
@@ -36,9 +36,10 @@
 
 .form-control:active,
 .form-control:focus,
-.form-control:active:focus-within label {
+.form-control:active:focus-within label + .label-login{
   outline: 0;
   box-shadow: none;
-  border-color: black;
-  color: black;
+  border-color:#91DAFE;
+  color:#424242;
 }
+
