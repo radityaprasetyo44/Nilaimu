@@ -31,15 +31,47 @@ Route::group(['prefix' => 'api/v1'], function () {
 
     });
 
-    Route::get('/teacher', 'NilaimuController@teacher')->name('dashboard');  
+    Route::get('/teacher/{nama}', 'NilaimuController@teacher')->name('dashboard');  
 
-    Route::get('/student', 'NilaimuController@student');
+    Route::get('/student/{nama}', 'NilaimuController@student');
 
     Route::get('/my-score', 'NilaimuController@myScore');
     
     Route::group(['prefix' => 'event'], function () {
 
         Route::get('/nilai-kelas', 'NilaimuController@nilaiKelas');  
+
+        Route::group(['prefix' => 'export'], function () {
+
+            Route::get('XIIRPL1', 'ExcelController@exportXIIRPL1');
+
+            Route::get('XIIRPL2', 'ExcelController@exportXIIRPL2');
+
+            Route::get('XIIRPL3', 'ExcelController@exportXIIRPL3');
+
+            Route::get('XIIRPL4', 'ExcelController@exportXIIRPL4');
+
+            Route::get('XIIRPL5', 'ExcelController@exportXIIRPL5');
+
+            Route::get('XIIRPL6', 'ExcelController@exportXIIRPL6');
+
+        });
+
+        Route::group(['prefix' => 'import'], function () {
+            
+            Route::get('XIIRPL1', 'ExcelController@importXIIRPL1');
+
+            Route::get('XIIRPL2', 'ExcelController@importXIIRPL2');
+
+            Route::get('XIIRPL3', 'ExcelController@importXIIRPL3');
+
+            Route::get('XIIRPL4', 'ExcelController@importXIIRPL4');
+
+            Route::get('XIIRPL5', 'ExcelController@importXIIRPL5');
+
+            Route::get('XIIRPL6', 'ExcelController@importXIIRPL6');
+
+        });
 
     });        
 

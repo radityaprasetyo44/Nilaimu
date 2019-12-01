@@ -8,6 +8,13 @@
     <link rel="stylesheet" href="{{ asset('css/myLogin.css') }}">
     <title>Document</title>
 </head>
+
+@if (session('alert'))
+    <div class="alert alert-success">
+        {{ session('alert') }}
+    </div>
+@endif
+
 <body>
 
     <div class="wrapper" style="padding: 0 auto;">
@@ -27,7 +34,8 @@
         <img src="{{ asset('images/logoWithText.svg') }}" alt="" style="margin-top: 23%;width: 30vw;height: 20vh;margin-left: -22%">        
         <h1 style="font-size: 1.85rem; color: #424242;"><strong>Selamat Datang, Silahkan Masuk!</strong></h1>
         <br>
-            <form action="dashboard" method="post">
+            <form action="/api/v1/auth/checklogin" method="post">
+            {{ csrf_field() }}
                 <div class="form-group">
                     <label style="font-size: 1.2rem;color: grey" class="label-login">username</label>
                     <input type="text" class="form-control" name="username">
@@ -58,15 +66,14 @@
                     padding-left: 0.3rem;
                 " onclick="myFunction()" >Lihat password</p>
                 </div> -->
-                <a href="/api/v1/teacher" class="btn my-3 loginButton" target="_self" style="
+                <button type="submit" class="btn my-3 loginButton" style="
                     height: 5%;
                     width: 57.5%;
                     background-color: #3AC5FE;
                     color: white;
                     font-size: 1.5rem;
                     border-radius: 0.4rem;
-                ">
-                Masuk</a>
+                ">Masuk</button>
             </form>
         </div>
 

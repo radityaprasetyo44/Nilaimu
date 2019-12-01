@@ -9,12 +9,13 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Ela Admin - HTML5 Admin Template</title>
-    <meta name="description" content="Ela Admin - HTML5 Admin Template">
+    <title>Nilaimu</title>
+    <meta name="description" content="Nilaimu">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="apple-touch-icon" href="https://i.imgur.com/QRAUqs9.png">
-    <link rel="shortcut icon" href="https://i.imgur.com/QRAUqs9.png">
+    <link rel="apple-touch-icon" href="{{asset('images/logoWithoutText.svg')}}">
+    
+    <link rel="shortcut icon" href="{{asset('images/logoWithoutText.svg')}}">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.0/normalize.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css">
@@ -23,8 +24,8 @@
     <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/pixeden-stroke-7-icon@1.2.3/pe-icon-7-stroke/dist/pe-icon-7-stroke.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.0/css/flag-icon.min.css">
-    <link rel="stylesheet" href="../../css/cs-skin-elastic.css">
-    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="{{asset('css/cs-skin-elastic.css')}}">
+    <link rel="stylesheet" href="{{asset('css/style.css')}}">
     <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
     <link href="https://cdn.jsdelivr.net/npm/chartist@0.11.0/dist/chartist.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/jqvmap@1.5.1/dist/jqvmap.min.css" rel="stylesheet">
@@ -104,12 +105,12 @@ $(document).ready(function(){
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-list"></i>Nilai Kelas</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-square"></i><a href="#">XII RPL 1</a></li>
-                            <li><i class="fa fa-square"></i><a href="#">XII RPL 2</a></li>
-                            <li><i class="fa fa-square"></i><a href="#">XII RPL 3</a></li>
-                            <li><i class="fa fa-square"></i><a href="#">XII RPL 4</a></li>
-                            <li><i class="fa fa-square"></i><a href="#">XII RPL 5</a></li>
-                            <li><i class="fa fa-square"></i><a href="#">XII RPL 6</a></li>
+                            <li><i class="fa fa-square"></i><a href="/api/v1/student/XIIRPL1">XII RPL 1</a></li>
+                            <li><i class="fa fa-square"></i><a href="/api/v1/student/XIIRPL2" value="">XII RPL 2</a></li>
+                            <li><i class="fa fa-square"></i><a href="/api/v1/student/XIIRPL3">XII RPL 3</a></li>
+                            <li><i class="fa fa-square"></i><a href="/api/v1/student/XIIRPL4">XII RPL 4</a></li>
+                            <li><i class="fa fa-square"></i><a href="/api/v1/student/XIIRPL5">XII RPL 5</a></li>
+                            <li><i class="fa fa-square"></i><a href="/api/v1/student/XIIRPL6">XII RPL 6</a></li>
                         </ul>
                     </li>
 
@@ -149,14 +150,10 @@ $(document).ready(function(){
                     <div class="user-area dropdown float-right">
                         <a href="#" class="dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false">
-                            <img class="user-avatar rounded-circle" src="../../images/Fotoku.jpg" alt="User Avatar">
+                            <img class="user-avatar rounded-circle" src="{{asset('images/Fotoku.jpg')}}" alt="User Avatar">
                         </a>
 
                         <div class="user-menu dropdown-menu">
-                            <a class="nav-link" href="#"><i class="fa fa- user"></i>Lihat Profil</a>
-
-                            <a class="nav-link" href="#"><i class="fa fa -cog"></i>Pengaturan</a>
-
                             <a class="nav-link" href="/api/v1/auth/login"><i class="fa fa-power -off"></i>Keluar</a>
                         </div>
                     </div>
@@ -172,10 +169,10 @@ $(document).ready(function(){
             <div class="">
                     <nav>
                         <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                            <a class="nav-item nav-link active" id="custom-nav-home-tab" data-toggle="tab"
+                            <a class="nav-item nav-link active" id="custom-nav-home-tab 1" data-toggle="tab"
                                 href="#" role="tab" aria-controls="custom-nav-1" aria-selected="true">
                                 Agama</a>
-                            <a class="nav-item nav-link" id="custom-nav-profile-tab" data-toggle="tab"
+                            <a class="nav-item nav-link" id="custom-nav-profile-tab 2" data-toggle="tab"
                                 href="#R2" role="tab" aria-controls="custom-nav-2"
                                 aria-selected="false">Matematika</a>
                             <a class="nav-item nav-link" id="custom-nav-contact-tab" data-toggle="tab"
@@ -359,7 +356,7 @@ $(document).ready(function(){
                                     <div class="card-body">
                                         <div class="progress-box progress-1">
                                             <h4 class="por-title">K1</h4>
-                                            <div class="por-txt">78 (78%)</div>
+                                            <div class="por-txt"><span class="count">{{$k['1']}}</span>%</div>
                                             <div class="progress mb-2" style="height: 5px;">
                                                 <div class="progress-bar bg-flat-color-1" role="progressbar"
                                                     style="width: 78%;" aria-valuenow="25" aria-valuemin="0"
@@ -368,7 +365,7 @@ $(document).ready(function(){
                                         </div>
                                         <div class="progress-box progress-2">
                                             <h4 class="por-title">K2</h4>
-                                            <div class="por-txt">87 (87%)</div>
+                                            <div class="por-txt"><span class="count">{{$k['2']}}</span>%</div>
                                             <div class="progress mb-2" style="height: 5px;">
                                                 <div class="progress-bar bg-flat-color-2" role="progressbar"
                                                     style="width: 87%;" aria-valuenow="25" aria-valuemin="0"
@@ -377,7 +374,7 @@ $(document).ready(function(){
                                         </div>
                                         <div class="progress-box progress-2">
                                             <h4 class="por-title">K3</h4>
-                                            <div class="por-txt">89 (89%)</div>
+                                            <div class="por-txt"><span class="count">{{$k['3']}}</span>%</div>
                                             <div class="progress mb-2" style="height: 5px;">
                                                 <div class="progress-bar bg-flat-color-3" role="progressbar"
                                                     style="width: 89%;" aria-valuenow="60" aria-valuemin="0"
@@ -386,7 +383,7 @@ $(document).ready(function(){
                                         </div>
                                         <div class="progress-box progress-2">
                                             <h4 class="por-title">K4</h4>
-                                            <div class="por-txt">51 (51%)</div>
+                                            <div class="por-txt"><span class="count">{{$k['4']}}</span>%</div>
                                             <div class="progress mb-2" style="height: 5px;">
                                                 <div class="progress-bar bg-flat-color-4" role="progressbar"
                                                     style="width: 51%;" aria-valuenow="90" aria-valuemin="0"
@@ -503,7 +500,7 @@ $(document).ready(function(){
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery-match-height@0.7.2/dist/jquery.matchHeight.min.js">
     </script>
-    <script src="../../js/main.js"></script>
+    <script src="{{asset('js/main.js')}}"></script>
 
     <!--  Chart js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.7.3/dist/Chart.bundle.min.js"></script>
@@ -518,11 +515,11 @@ $(document).ready(function(){
     <script src="https://cdn.jsdelivr.net/npm/flot-spline@0.0.1/js/jquery.flot.spline.min.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/simpleweather@3.1.0/jquery.simpleWeather.min.js"></script>
-    <script src="../../js/init/weather-init.js"></script>
+    <script src="{{asset('js/weather-init.js')}}"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/moment.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@3.9.0/dist/fullcalendar.min.js"></script>
-    <script src="../../js/init/fullcalendar-init.js"></script>
+    <script src="{{asset('js/fullcalendar-init.js')}}"></script>
 
     <!--Local Stuff-->
     <script>

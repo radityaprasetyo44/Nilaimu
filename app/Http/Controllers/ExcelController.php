@@ -31,7 +31,7 @@ class ExcelController extends Controller
     {
         $date=date("Y-m-d h:i:s", time());
         $fileName = 'Excel '.$date.'.xlsx';
-        return Excel::download(new SiswaExport, $fileName);
+        return Excel::download('App\Exports\SiswaExport@collection', $fileName);
     }
 
     public function import_excel(Request $request)
