@@ -63,17 +63,7 @@ Route::group(['prefix' => 'api/v1'], function () {
 
         Route::group(['prefix' => 'import'], function () {
             
-            Route::get('XIIRPL1', 'ExcelController@importXIIRPL1');
-
-            Route::get('XIIRPL2', 'ExcelController@importXIIRPL2');
-
-            Route::get('XIIRPL3', 'ExcelController@importXIIRPL3');
-
-            Route::get('XIIRPL4', 'ExcelController@importXIIRPL4');
-
-            Route::get('XIIRPL5', 'ExcelController@importXIIRPL5');
-
-            Route::get('XIIRPL6', 'ExcelController@importXIIRPL6');
+            Route::post('/', 'ExcelController@importExcel');
 
         });
 

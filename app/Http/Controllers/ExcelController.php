@@ -66,6 +66,25 @@ class ExcelController extends Controller
         return redirect('/excel/import');
     }
 
+    public function importExcel(Request $request)
+    {
+        $this->validate($request, [
+            'file' => 'required|mimes:csv,xls,xlsx'
+        ]);
+
+        $file = $request->file('file');
+
+        $nama_file = rand().$file->getClientOriginalName();
+
+        $file->move('file_siswa', $nama_file);
+
+        Excel::import(new SiswaImport, public_path('/file_siswa/'.$nama_file));
+
+        Session::flash('Sukses', 'Data Siswa Berhasil di Import');
+
+        return redirect('api/v1/teacher/XIIRPL1');
+    }
+
     public function exportXIIRPL1()
     {
         $date=date("Y-m-d h:i:s", time());
