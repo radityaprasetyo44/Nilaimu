@@ -15,6 +15,13 @@ class CreateRplProduktifsTable extends Migration
     {
         Schema::create('rpl_produktifs', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('nama');
+            $table->string('nis');
+            $table->string('nama_kelas');
+            $table->integer('K1');
+            $table->integer('K2');
+            $table->integer('K3');
+            $table->integer('K4');
             $table->timestamps();
         });
     }

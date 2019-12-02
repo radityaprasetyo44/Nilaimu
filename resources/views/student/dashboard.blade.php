@@ -105,12 +105,12 @@ $(document).ready(function(){
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-list"></i>Nilai Kelas</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-square"></i><a href="/api/v1/student/XIIRPL1">XII RPL 1</a></li>
-                            <li><i class="fa fa-square"></i><a href="/api/v1/student/XIIRPL2" value="">XII RPL 2</a></li>
-                            <li><i class="fa fa-square"></i><a href="/api/v1/student/XIIRPL3">XII RPL 3</a></li>
-                            <li><i class="fa fa-square"></i><a href="/api/v1/student/XIIRPL4">XII RPL 4</a></li>
-                            <li><i class="fa fa-square"></i><a href="/api/v1/student/XIIRPL5">XII RPL 5</a></li>
-                            <li><i class="fa fa-square"></i><a href="/api/v1/student/XIIRPL6">XII RPL 6</a></li>
+                            <li><i class="fa fa-square"></i><a href="/api/v1/student/agama/XIIRPL1" value="XIIRPL1" id="XIIRPL1">XII RPL 1</a></li>
+                            <li><i class="fa fa-square"></i><a href="/api/v1/student/agama/XIIRPL2" value="">XII RPL 2</a></li>
+                            <li><i class="fa fa-square"></i><a href="/api/v1/student/agama/XIIRPL3">XII RPL 3</a></li>
+                            <li><i class="fa fa-square"></i><a href="/api/v1/student/agama/XIIRPL4">XII RPL 4</a></li>
+                            <li><i class="fa fa-square"></i><a href="/api/v1/student/agama/XIIRPL5">XII RPL 5</a></li>
+                            <li><i class="fa fa-square"></i><a href="/api/v1/student/agama/XIIRPL6">XII RPL 6</a></li>
                         </ul>
                     </li>
 
@@ -171,20 +171,20 @@ $(document).ready(function(){
             <div class="">
                     <nav>
                         <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                            <a class="nav-item nav-link active" id="custom-nav-home-tab 1" 
-                                href="/api/v1/nilai-ku/agama" role="tab" aria-controls="custom-nav-1" aria-selected="true">
+                            <a class="nav-item nav-link" id="custom-nav-home-tab agama" 
+                                href="/api/v1/student/agama/{{$nama}}" role="tab" aria-controls="custom-nav-1" aria-selected="true">
                                 Agama</a>
                             <a class="nav-item nav-link" id="custom-nav-profile-tab 2"
-                                href="/api/v1/nilai-ku/matematika" role="tab" aria-controls="custom-nav-2"
+                                href="/api/v1/student/matematika/{{$nama}}" role="tab" aria-controls="custom-nav-2"
                                 aria-selected="false">Matematika</a>
                             <a class="nav-item nav-link" id="custom-nav-contact-tab" 
-                                href="/api/v1/nilai-ku/indonesia" role="tab" aria-controls="custom-nav-3"
+                                href="/api/v1/student/indonesia/{{$nama}}" role="tab" aria-controls="custom-nav-3"
                                 aria-selected="false">B. Indonesia</a>
                             <a class="nav-item nav-link" id="custom-nav-contact-tab" 
-                                href="/api/v1/nilai-ku/inggris" role="tab" aria-controls="custom-nav-4"
+                                href="/api/v1/student/inggris/{{$nama}}" role="tab" aria-controls="custom-nav-4"
                                 aria-selected="false">B.Inggris</a>
                             <a class="nav-item nav-link" id="custom-nav-contact-tab" 
-                                href="/api/v1/nilai-ku/produktif" role="tab" aria-controls="custom-nav-5"
+                                href="/api/v1/student/produktif/{{$nama}}" role="tab" aria-controls="custom-nav-5"
                                 aria-selected="false">Produktif</a>
                         </div>
                     </nav>
@@ -529,28 +529,28 @@ $(document).ready(function(){
             var piedata = [{
                     label: "Kompetensi 1  .",
                     data: [
-                        [1, 23]
+                        [1, {{$rata['k1']}}]
                     ],
                     color: '#5c6bc0'
                 },
                 {
                     label: "Kompetensi 2",
                     data: [
-                        [1, 33]
+                        [1, {{$rata['k2']}}]
                     ],
                     color: '#ef5350'
                 },
                 {
                     label: "Kompetensi 3",
                     data: [
-                        [1, 32]
+                        [1, {{$rata['k3']}}]
                     ],
                     color: '#66bb6a'
                 },
                 {
                     label: "Kompetensi 4",
                     data: [
-                        [1, 12]
+                        [1, {{$rata['k4']}}]
                     ],
                     color: '#ff6600'
                 }
@@ -662,10 +662,7 @@ $(document).ready(function(){
                 var chart = new Chartist.Line('#traffic-chart', {
                     labels: ["XIIRPL1", "XIIRPL2", "XIIRPL3", "XIIRPL4", "XIIRPL5", "XIIRPL6"],
                     series: [
-                        [30000, 25000, 35000, 25000, 22000, 19000],
-                        [25000, 33000, 23000, 21500, 20000, 25000],
-                        [30000, 22000, 28000, 21000, 30000, 20000],
-                        [20000, 23500, 27000, 15000, 26000, 30000],
+                        [{{$k['r15']}}, {{$k['r25']}}, {{$k['r35']}}, {{$k['r45']}}, {{$k['r55']}}, {{$k['r65']}}]
                     ]
                 }, {
                     low: 0,

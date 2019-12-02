@@ -578,28 +578,28 @@
             var piedata = [{
                     label: "Kompetensi 1  .",
                     data: [
-                        [1, 23]
+                        [1, {{$rata['k1']}}]
                     ],
                     color: '#5c6bc0'
                 },
                 {
                     label: "Kompetensi 2",
                     data: [
-                        [1, 33]
+                        [1, {{$rata['k2']}}]
                     ],
                     color: '#ef5350'
                 },
                 {
                     label: "Kompetensi 3",
                     data: [
-                        [1, 32]
+                        [1, {{$rata['k3']}}]
                     ],
                     color: '#66bb6a'
                 },
                 {
                     label: "Kompetensi 4",
                     data: [
-                        [1, 12]
+                        [1, {{$rata['k4']}}]
                     ],
                     color: '#ff6600'
                 }
@@ -711,10 +711,7 @@
                 var chart = new Chartist.Line('#traffic-chart', {
                     labels: ["XIIRPL1", "XIIRPL2", "XIIRPL3", "XIIRPL4", "XIIRPL5", "XIIRPL6"],
                     series: [
-                        [30000, 25000, 35000, 25000, 22000, 19000],
-                        [25000, 33000, 23000, 21500, 20000, 25000],
-                        [30000, 22000, 28000, 21000, 30000, 20000],
-                        [20000, 23500, 27000, 15000, 26000, 30000],
+                        [{{$k['r15']}}, {{$k['r25']}}, {{$k['r35']}}, {{$k['r45']}}, {{$k['r55']}}, {{$k['r65']}}],
                     ]
                 }, {
                     low: 0,

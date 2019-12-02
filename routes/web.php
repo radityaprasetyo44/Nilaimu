@@ -33,6 +33,8 @@ Route::group(['prefix' => 'api/v1'], function () {
 
     Route::get('/teacher/{nama}', 'NilaimuController@teacher')->name('dashboard');  
 
+    Route::get('/student/{pelajaran}/{nama}', 'NilaimuController@student')->name('student.pelajaran');
+
     Route::get('/student/{nama}', 'NilaimuController@student');
     
     Route::get('/nilai-ku/{pelajaran}', 'NilaimuController@myScore');  
