@@ -76,17 +76,24 @@
 
     </style>
     <script>
-$(document).ready(function(){
-    $('a[data-toggle="tab"]').on('show.bs.tab', function(e) {
-        localStorage.setItem('activeTab', $(e.target).attr('href'));
-    });
-    var activeTab = localStorage.getItem('activeTab');
-    if(activeTab){
-        $('#myTab a[href="' + activeTab + '"]').tab('show');
-    }
-});
-</script>   
+        $(document).ready(function () {
+            $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
+                localStorage.setItem('activeTab', $(e.target).attr('href'));
+            });
+            var activeTab = localStorage.getItem('activeTab');
+            if (activeTab) {
+                $('#myTab a[href="' + activeTab + '"]').tab('show');
+            }
+        });
+
+    </script>
 </head>
+
+@if(session()->has('jsAlert'))
+    <script>
+        alert({{ session()->get('jsAlert') }});
+    </script>
+@endif 
 
 <body>
     <!-- Left Panel -->
@@ -106,9 +113,9 @@ $(document).ready(function(){
                     </li>
                 </ul>
             </div><!-- /.navbar-collapse -->
-            
+
         </nav>
-        
+
     </aside>
     <!-- /#left-panel -->
     <!-- Right Panel -->
@@ -116,13 +123,13 @@ $(document).ready(function(){
         <!-- Header-->
         <header id="header" class="header">
             <div class="top-left">
-                <div class="navbar-header"  style="margin-left: -1.4rem;">
+                <div class="navbar-header" style="margin-left: -1.4rem;">
                     <!-- <a class="navbar-brand" href="./"><img src="{{ asset('images/logoWithText.svg') }}" alt="Logo" style="
                     width: 20vw; 
                     height: 10vh;
                     margin-top: -10%"></a> -->
                     <!-- <a class="navbar-brand hidden" href="./"><img src="../../images/logo2.png" alt="Logo"></a> -->
-                    <a id="menuToggle" class="menutoggle"><i class="fa fa-bars" ></i></a>
+                    <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a>
                 </div>
             </div>
             <div class="top-right">
@@ -141,11 +148,11 @@ $(document).ready(function(){
                     <div class="user-area dropdown float-right">
                         <a href="#" class="dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false">
-                            <img class="user-avatar rounded-circle" src="{{asset('images/Fotoku.jpg')}}" alt="User Avatar">
+                            <img class="user-avatar rounded-circle" src="{{asset('images/Fotoku.jpg')}}"
+                                alt="User Avatar">
                         </a>
-\
                         <div class="user-menu dropdown-menu">
-    
+
                             <a class="nav-link" href="#"><i class="fa fa-power -off"></i>pengaturan</a>
 
                             <a class="nav-link" href="/api/v1/auth/login"><i class="fa fa-power -off"></i>Keluar</a>
@@ -163,23 +170,23 @@ $(document).ready(function(){
                 <div class="">
                     <nav>
                         <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                            <a class="nav-item nav-link active" id="custom-nav-home-tab" data-toggle="tab"
-                                href="#" role="tab" aria-controls="custom-nav-1" aria-selected="true">XII
+                            <a href="/api/v1/teacher/XIIRPL1" class="nav-item nav-link active" id="custom-nav-home-tab"
+                                data-toggle="tab" role="tab" aria-controls="custom-nav-1" aria-selected="true">XII
                                 RPL 1</a>
-                            <a class="nav-item nav-link" id="custom-nav-profile-tab" data-toggle="tab"
-                                href="#R2" role="tab" aria-controls="custom-nav-2"
-                                aria-selected="false">XII RPL 2</a>
+                            <a href="/api/v1/teacher/XIIRPL2" class="nav-item nav-link" id="custom-nav-profile-tab"
+                                data-toggle="tab" role="tab" aria-controls="custom-nav-2" aria-selected="false">XII RPL
+                                2</a>
                             <a class="nav-item nav-link" id="custom-nav-contact-tab" data-toggle="tab"
-                                href="#R3" role="tab" aria-controls="custom-nav-3"
+                                href="/api/v1/teacher/XIIRPL3" role="tab" aria-controls="custom-nav-3"
                                 aria-selected="false">XII RPL 3</a>
                             <a class="nav-item nav-link" id="custom-nav-contact-tab" data-toggle="tab"
-                                href="#R4" role="tab" aria-controls="custom-nav-4"
+                                href="/api/v1/teacher/XIIRPL4" role="tab" aria-controls="custom-nav-4"
                                 aria-selected="false">XII RPL 4</a>
                             <a class="nav-item nav-link" id="custom-nav-contact-tab" data-toggle="tab"
-                                href="#R5" role="tab" aria-controls="custom-nav-5"
+                                href="/api/v1/teacher/XIIRPL5" role="tab" aria-controls="custom-nav-5"
                                 aria-selected="false">XII RPL 5</a>
                             <a class="nav-item nav-link" id="custom-nav-contact-tab" data-toggle="tab"
-                                href="#R6" role="tab" aria-controls="custom-nav-6"
+                                href="/api/v1/teacher/XIIRPL6" role="tab" aria-controls="custom-nav-6"
                                 aria-selected="false">XII RPL 6</a>
                         </div>
                     </nav>
@@ -291,7 +298,8 @@ $(document).ready(function(){
                                                     <td class="serial">{{$i++}}</td>
                                                     <td> <span class="name">{{$n->nama}}</span> </td>
                                                     <td> <span class="product" style="">{{$n->nis}}</span> </td>
-                                                    <td><span class="count" style="align-items: center;">{{$n->K1}}</span></td>
+                                                    <td><span class="count"
+                                                            style="align-items: center;">{{$n->K1}}</span></td>
                                                     <td><span class="count">{{$n->K2}}</span></td>
                                                     <td><span class="count">{{$n->K3}}</span></td>
                                                     <td><span class="count">{{$n->K4}}</span></td>
@@ -302,7 +310,19 @@ $(document).ready(function(){
                                     </div> <!-- /.table-stats -->
                                 </div>
                             </div> <!-- /.card -->
+                            <div class="row">
+                            
                             {{$nilai->links()}}
+                            @foreach($nilai as $n)
+                            <a href="/api/v1/event/hapus/{{$n->nama_kelas}}">
+                            <button class="btn btn-danger" style="
+                                position: absolute; right: 0;
+                                margin-right: 1.2%;
+                                margin-top: -0.5%;    
+                            ">Hapus Data</button>
+                            </a>
+                            @endforeach
+                            </div>
                         </div> <!-- /.col-lg-8 -->
 
                         <div class="col-xl-4">
@@ -476,10 +496,7 @@ $(document).ready(function(){
             <div class="footer-inner bg-white">
                 <div class="row">
                     <div class="col-sm-6">
-                        Copyright &copy; 2019 raditya44
-                    </div>
-                    <div class="col-sm-6 text-right">
-                        Designed by <a href="https://colorlib.com">Colorlib</a>
+                        Copyright &copy; 2019 Code Freeze
                     </div>
                 </div>
             </div>

@@ -100,7 +100,7 @@ $(document).ready(function(){
                     </li>
                     <li class="menu-title">Nilai</li><!-- /.menu-title -->
                     <li>
-                        <a href="/api/v1/my-score"> <i class="menu-icon fa fa-user"></i>Nilai Ku</a>
+                        <a href="/api/v1/nilai-ku"> <i class="menu-icon fa fa-user"></i>Nilai Ku</a>
                     </li>
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-list"></i>Nilai Kelas</a>
@@ -116,7 +116,7 @@ $(document).ready(function(){
 
                     <li class="menu-title">Aksi</li><!-- /.menu-title -->
                     <li>
-                        <a href="/excel/export"> <i class="menu-icon ti-download"></i>Export </a>
+                        <a href="/api/v1/event/export/XIIRPL2"> <i class="menu-icon ti-download"></i>Export </a>
                     </li>
                 </ul>
             </div><!-- /.navbar-collapse -->

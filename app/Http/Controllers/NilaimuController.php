@@ -51,7 +51,7 @@ class NilaimuController extends Controller
         $k['2'] = RplAgama::where('nama_kelas', $nama)->avg('K2');
         $k['3'] = RplAgama::where('nama_kelas', $nama)->avg('K3');
         $k['4'] = RplAgama::where('nama_kelas', $nama)->avg('K4');
-        return view('teacher.dashboard', compact('nilai', 'k'));
+        return view('teacher.dashboard', compact('nilai', 'k', $nama));
     }
 
     public function nilaiKelas()
@@ -66,7 +66,7 @@ class NilaimuController extends Controller
         $k['2'] = RplAgama::where('nama_kelas', $nama)->avg('K2');
         $k['3'] = RplAgama::where('nama_kelas', $nama)->avg('K3');
         $k['4'] = RplAgama::where('nama_kelas', $nama)->avg('K4');
-        return view('student.dashboard', compact('nilai', 'k'));
+        return view('student.dashboard', compact('nilai', 'k', $nama));
     }
 
     public function myScore()
@@ -77,5 +77,11 @@ class NilaimuController extends Controller
         $k['3'] = Nilaimu::avg('K3');
         $k['4'] = Nilaimu::avg('K4');
         return view('my.dashboard', compact('nilai', 'k'));
+    }
+
+    public function deleteData($nama)
+    {
+        $nilai = RplAgama::where('nama_kelas', $nama)->delete();
+        return redirect()->back()->with('jsAlert', 'Data berhasil dihapus!');
     }
 }

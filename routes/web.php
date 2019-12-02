@@ -35,13 +35,17 @@ Route::group(['prefix' => 'api/v1'], function () {
 
     Route::get('/student/{nama}', 'NilaimuController@student');
 
-    Route::get('/my-score', 'NilaimuController@myScore');
+    Route::get('/nilai-ku', 'NilaimuController@myScore');
     
     Route::group(['prefix' => 'event'], function () {
 
         Route::get('/nilai-kelas', 'NilaimuController@nilaiKelas');  
 
+        Route::get('/hapus/{nama}', 'NilaimuController@deleteData');  
+
         Route::group(['prefix' => 'export'], function () {
+
+            Route::get('/{nama}', 'ExcelController@excelExport');
 
             Route::get('XIIRPL1', 'ExcelController@exportXIIRPL1');
 
