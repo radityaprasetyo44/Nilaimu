@@ -116,7 +116,7 @@ $(document).ready(function(){
 
                     <li class="menu-title">Aksi</li><!-- /.menu-title -->
                     <li>
-                        <a href="/api/v1/event/export/XIIRPL2"> <i class="menu-icon ti-download"></i>Export </a>
+                        <a href="/api/v1/event/export/{{$nama}}"> <i class="menu-icon ti-download"></i>Export </a>
                     </li>
                 </ul>
             </div><!-- /.navbar-collapse -->
@@ -154,6 +154,8 @@ $(document).ready(function(){
                         </a>
 
                         <div class="user-menu dropdown-menu">
+                            <a class="nav-link" href="/api/v1/student/settings"><i class="fa fa-power -off"></i>Pengaturan</a>
+
                             <a class="nav-link" href="/api/v1/auth/login"><i class="fa fa-power -off"></i>Keluar</a>
                         </div>
                     </div>
@@ -359,7 +361,7 @@ $(document).ready(function(){
                                             <div class="por-txt"><span class="count">{{$k['1']}}</span>%</div>
                                             <div class="progress mb-2" style="height: 5px;">
                                                 <div class="progress-bar bg-flat-color-1" role="progressbar"
-                                                    style="width: 78%;" aria-valuenow="25" aria-valuemin="0"
+                                                    style="width: {{$k['1']}}%;" aria-valuenow="25" aria-valuemin="0"
                                                     aria-valuemax="100"></div>
                                             </div>
                                         </div>
@@ -368,7 +370,7 @@ $(document).ready(function(){
                                             <div class="por-txt"><span class="count">{{$k['2']}}</span>%</div>
                                             <div class="progress mb-2" style="height: 5px;">
                                                 <div class="progress-bar bg-flat-color-2" role="progressbar"
-                                                    style="width: 87%;" aria-valuenow="25" aria-valuemin="0"
+                                                    style="width: {{$k['2']}}%;" aria-valuenow="25" aria-valuemin="0"
                                                     aria-valuemax="100"></div>
                                             </div>
                                         </div>
@@ -377,7 +379,7 @@ $(document).ready(function(){
                                             <div class="por-txt"><span class="count">{{$k['3']}}</span>%</div>
                                             <div class="progress mb-2" style="height: 5px;">
                                                 <div class="progress-bar bg-flat-color-3" role="progressbar"
-                                                    style="width: 89%;" aria-valuenow="60" aria-valuemin="0"
+                                                    style="width: {{$k['3']}}%;" aria-valuenow="60" aria-valuemin="0"
                                                     aria-valuemax="100"></div>
                                             </div>
                                         </div>
@@ -386,7 +388,7 @@ $(document).ready(function(){
                                             <div class="por-txt"><span class="count">{{$k['4']}}</span>%</div>
                                             <div class="progress mb-2" style="height: 5px;">
                                                 <div class="progress-bar bg-flat-color-4" role="progressbar"
-                                                    style="width: 51%;" aria-valuenow="90" aria-valuemin="0"
+                                                    style="width: {{$k['4']}}%;" aria-valuenow="90" aria-valuemin="0"
                                                     aria-valuemax="100"></div>
                                             </div>
                                         </div>

@@ -118,7 +118,10 @@
                                 class="menu-icon ti-upload"></i>Import</a>
                     </li>
                     <li>
-                        <a href="/excel/export"> <i class="menu-icon ti-download"></i>Export </a>
+                        <a href="/api/v1/event/export/{{$nama}}"> <i class="menu-icon ti-download"></i>Export </a>
+                    </li>
+                    <li>
+                        <a href="/api/v1/auth/login" style="margin-top:250%"> <i class="menu-icon ti-power-off"></i>Keluar </a>
                     </li>
                 </ul>
             </div><!-- /.navbar-collapse -->
@@ -157,12 +160,11 @@
                     <div class="user-area dropdown float-right">
                         <a href="#" class="dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false">
-                            <img class="user-avatar rounded-circle" src="{{asset('images/Fotoku.jpg')}}"
-                                alt="User Avatar">
+                            <img class="user-avatar rounded-circle" src="{{asset('images/Fotoku.jpg')}}" alt="User Avatar">
                         </a>
-                        <div class="user-menu dropdown-menu">
 
-                            <a class="nav-link" href="#"><i class="fa fa-power -off"></i>pengaturan</a>
+                        <div class="user-menu dropdown-menu">
+                            <a class="nav-link" href="/api/v1/teacher/settings"><i class="fa fa-power -off"></i>Pengaturan</a>
 
                             <a class="nav-link" href="/api/v1/auth/login"><i class="fa fa-power -off"></i>Keluar</a>
                         </div>
@@ -204,23 +206,23 @@
             <div class="animated fadeIn">
                 <div class="">
                     <nav>
-                        <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                            <a href="/api/v1/teacher/XIIRPL1" class="nav-item nav-link active" id="custom-nav-home-tab"
-                                data-toggle="tab" role="tab" aria-controls="custom-nav-1" aria-selected="true">XII
-                                RPL 1</a>
-                            <a href="/api/v1/teacher/XIIRPL2" class="nav-item nav-link" id="custom-nav-profile-tab"
-                                data-toggle="tab" role="tab" aria-controls="custom-nav-2" aria-selected="false">XII RPL
+                        <div class="nav nav-tabs" id="nav-tab" role="tab">
+                            <a href="/api/v1/teacher/XIIRPL1" class="nav-item nav-link"
+                                role="tab" aria-selected="true">
+                                XII RPL 1</a>
+                            <a href="/api/v1/teacher/XIIRPL2" class="nav-item nav-link" 
+                                role="tab" aria-controls="custom-nav-2" aria-selected="false">XII RPL
                                 2</a>
-                            <a class="nav-item nav-link" id="custom-nav-contact-tab" data-toggle="tab"
+                            <a class="nav-item nav-link" id="custom-nav-contact-tab"
                                 href="/api/v1/teacher/XIIRPL3" role="tab" aria-controls="custom-nav-3"
                                 aria-selected="false">XII RPL 3</a>
-                            <a class="nav-item nav-link" id="custom-nav-contact-tab" data-toggle="tab"
+                            <a class="nav-item nav-link" id="custom-nav-contact-tab" 
                                 href="/api/v1/teacher/XIIRPL4" role="tab" aria-controls="custom-nav-4"
                                 aria-selected="false">XII RPL 4</a>
-                            <a class="nav-item nav-link" id="custom-nav-contact-tab" data-toggle="tab"
+                            <a class="nav-item nav-link" id="custom-nav-contact-tab"
                                 href="/api/v1/teacher/XIIRPL5" role="tab" aria-controls="custom-nav-5"
                                 aria-selected="false">XII RPL 5</a>
-                            <a class="nav-item nav-link" id="custom-nav-contact-tab" data-toggle="tab"
+                            <a class="nav-item nav-link" id="custom-nav-contact-tab"
                                 href="/api/v1/teacher/XIIRPL6" role="tab" aria-controls="custom-nav-6"
                                 aria-selected="false">XII RPL 6</a>
                         </div>
@@ -405,37 +407,37 @@
                                     <div class="card-body">
                                         <div class="progress-box progress-1">
                                             <h4 class="por-title">K1</h4>
-                                            <div class="por-txt">78 (78%)</div>
+                                            <div class="por-txt"><span class="count">{{$k['1']}}</span>%</div>
                                             <div class="progress mb-2" style="height: 5px;">
                                                 <div class="progress-bar bg-flat-color-1" role="progressbar"
-                                                    style="width: 78%;" aria-valuenow="25" aria-valuemin="0"
+                                                    style="width: {{$k['1']}}%;" aria-valuenow="25" aria-valuemin="0"
                                                     aria-valuemax="100"></div>
                                             </div>
                                         </div>
                                         <div class="progress-box progress-2">
                                             <h4 class="por-title">K2</h4>
-                                            <div class="por-txt">87 (87%)</div>
+                                            <div class="por-txt"><span class="count">{{$k['2']}}</span>%</div>
                                             <div class="progress mb-2" style="height: 5px;">
                                                 <div class="progress-bar bg-flat-color-2" role="progressbar"
-                                                    style="width: 87%;" aria-valuenow="25" aria-valuemin="0"
+                                                    style="width: {{$k['2']}}%;" aria-valuenow="25" aria-valuemin="0"
                                                     aria-valuemax="100"></div>
                                             </div>
                                         </div>
                                         <div class="progress-box progress-2">
                                             <h4 class="por-title">K3</h4>
-                                            <div class="por-txt">89 (89%)</div>
+                                            <div class="por-txt"><span class="count">{{$k['3']}}</span>%</div>
                                             <div class="progress mb-2" style="height: 5px;">
                                                 <div class="progress-bar bg-flat-color-3" role="progressbar"
-                                                    style="width: 89%;" aria-valuenow="60" aria-valuemin="0"
+                                                    style="width: {{$k['3']}}%;" aria-valuenow="60" aria-valuemin="0"
                                                     aria-valuemax="100"></div>
                                             </div>
                                         </div>
                                         <div class="progress-box progress-2">
                                             <h4 class="por-title">K4</h4>
-                                            <div class="por-txt">51 (51%)</div>
+                                            <div class="por-txt"><span class="count">{{$k['4']}}</span>%</div>
                                             <div class="progress mb-2" style="height: 5px;">
                                                 <div class="progress-bar bg-flat-color-4" role="progressbar"
-                                                    style="width: 51%;" aria-valuenow="90" aria-valuemin="0"
+                                                    style="width: {{$k['4']}}%;" aria-valuenow="90" aria-valuemin="0"
                                                     aria-valuemax="100"></div>
                                             </div>
                                         </div>

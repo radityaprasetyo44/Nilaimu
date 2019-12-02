@@ -10,7 +10,17 @@ use Session;
 
 use App\Exports\SiswaExport;
 
-use App\Imports\SiswaImport;
+use App\Exports\Rpl1;
+
+use App\Exports\Rpl2;
+
+use App\Exports\Rpl3;
+
+use App\Exports\Rpl4;
+
+use App\Exports\Rpl5;
+
+use App\Exports\Rpl6;
 
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -33,17 +43,17 @@ class ExcelController extends Controller
     public function excelExport($nama)
     {
         if($nama == 'XIIRPL1'){
-            return redirect('api/v1/event/export/XIIRPL1');
+            return redirect('api/v1/event/export/class/XIIRPL1');
         } else if($nama == 'XIIRPL2'){
-            return redirect('api/v1/event/export/XIIRPL2');
+            return redirect('api/v1/event/export/class/XIIRPL2');
         } else if($nama == 'XIIRPL3'){
-            return redirect('api/v1/event/export/XIIRPL3');
+            return redirect('api/v1/event/export/class/XIIRPL3');
         } else if($nama == 'XIIRPL4'){
-            return redirect('api/v1/event/export/XIIRPL4');
+            return redirect('api/v1/event/export/class/XIIRPL4');
         } else if($nama == 'XIIRPL5'){
-            return redirect('api/v1/event/export/XIIRPL5');
+            return redirect('api/v1/event/export/class/XIIRPL5');
         } else {
-            return redirect('api/v1/event/export/XIIRPL6');
+            return redirect('api/v1/event/export/class/XIIRPL6');
         }
     }
 
@@ -89,14 +99,41 @@ class ExcelController extends Controller
     {
         $date=date("Y-m-d h:i:s", time());
         $fileName = 'Excel '.$date.'.xlsx';
-        return Excel::download('App/Exports/SiswaExport@XIIRPL1', $fileName);        
+        return Excel::download(new Rpl1, $fileName);        
     }
 
     public function exportXIIRPL2()
     {
-        dd('halo');
         $date=date("Y-m-d h:i:s", time());
         $fileName = 'Excel '.$date.'.xlsx';
-        return Excel::download('App/Exports/SiswaExport@XIIRPL2', $fileName);        
+        return Excel::download(new Rpl2, $fileName);        
+    }
+
+    public function exportXIIRPL3()
+    {
+        $date=date("Y-m-d h:i:s", time());
+        $fileName = 'Excel '.$date.'.xlsx';
+        return Excel::download(new Rpl3, $fileName);        
+    }
+
+    public function exportXIIRPL4()
+    {
+        $date=date("Y-m-d h:i:s", time());
+        $fileName = 'Excel '.$date.'.xlsx';
+        return Excel::download(new Rpl4, $fileName);        
+    }
+
+    public function exportXIIRPL5()
+    {
+        $date=date("Y-m-d h:i:s", time());
+        $fileName = 'Excel '.$date.'.xlsx';
+        return Excel::download(new Rpl5, $fileName);        
+    }
+
+    public function exportXIIRPL6()
+    {
+        $date=date("Y-m-d h:i:s", time());
+        $fileName = 'Excel '.$date.'.xlsx';
+        return Excel::download(new Rpl6, $fileName);        
     }
 }

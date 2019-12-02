@@ -47,17 +47,17 @@ Route::group(['prefix' => 'api/v1'], function () {
 
             Route::get('/{nama}', 'ExcelController@excelExport');
 
-            Route::get('XIIRPL1', 'ExcelController@exportXIIRPL1');
+            Route::get('/class/XIIRPL1', 'ExcelController@exportXIIRPL1');
 
-            Route::get('XIIRPL2', 'ExcelController@exportXIIRPL2');
+            Route::get('/class/XIIRPL2', 'ExcelController@exportXIIRPL2');
 
-            Route::get('XIIRPL3', 'ExcelController@exportXIIRPL3');
+            Route::get('/class/XIIRPL3', 'ExcelController@exportXIIRPL3');
 
-            Route::get('XIIRPL4', 'ExcelController@exportXIIRPL4');
+            Route::get('/class/XIIRPL4', 'ExcelController@exportXIIRPL4');
 
-            Route::get('XIIRPL5', 'ExcelController@exportXIIRPL5');
+            Route::get('/class/XIIRPL5', 'ExcelController@exportXIIRPL5');
 
-            Route::get('XIIRPL6', 'ExcelController@exportXIIRPL6');
+            Route::get('/class/XIIRPL6', 'ExcelController@exportXIIRPL6');
 
         });
 

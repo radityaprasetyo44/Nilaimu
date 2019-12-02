@@ -18,6 +18,7 @@ use Charts;
 
 class NilaimuController extends Controller
 {
+    protected $nama;
 
     public function login()
     {
@@ -46,12 +47,13 @@ class NilaimuController extends Controller
 
     public function teacher($nama)
     {
+        $this->nama = $nama;
         $nilai = RplAgama::where('nama_kelas', $nama)->paginate(5);
         $k['1'] = RplAgama::where('nama_kelas', $nama)->avg('K1');
         $k['2'] = RplAgama::where('nama_kelas', $nama)->avg('K2');
         $k['3'] = RplAgama::where('nama_kelas', $nama)->avg('K3');
         $k['4'] = RplAgama::where('nama_kelas', $nama)->avg('K4');
-        return view('teacher.dashboard', compact('nilai', 'k', $nama));
+        return view('teacher.dashboard', compact('nilai', 'k', 'nama'));
     }
 
     public function nilaiKelas()
@@ -66,7 +68,7 @@ class NilaimuController extends Controller
         $k['2'] = RplAgama::where('nama_kelas', $nama)->avg('K2');
         $k['3'] = RplAgama::where('nama_kelas', $nama)->avg('K3');
         $k['4'] = RplAgama::where('nama_kelas', $nama)->avg('K4');
-        return view('student.dashboard', compact('nilai', 'k', $nama));
+        return view('student.dashboard', compact('nilai', 'k', 'nama'));
     }
 
     public function myScore()
