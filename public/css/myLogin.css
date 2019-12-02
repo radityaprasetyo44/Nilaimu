@@ -26,6 +26,10 @@
     width: 57.5%;
 }
 
+.standardSelect{
+    height: 50px;
+}
+
 .check{
     background: transparent;
     box-shadow: none;

@@ -13,4 +13,6 @@ class UserNilaimu extends Model implements AuthenticatableContract
     use Authenticatable;
 
     protected $table = 'user_nilaimus';
+
+    protected $fillable = ['nama', 'status', 'username', 'password'];
 }

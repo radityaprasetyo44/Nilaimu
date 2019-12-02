@@ -34,14 +34,32 @@ Route::group(['prefix' => 'api/v1'], function () {
     Route::get('/teacher/{nama}', 'NilaimuController@teacher')->name('dashboard');  
 
     Route::get('/student/{nama}', 'NilaimuController@student');
+    
+    Route::get('/nilai-ku/{pelajaran}', 'NilaimuController@myScore');  
 
-    Route::get('/nilai-ku', 'NilaimuController@myScore');
+    // Route::group(['prefix' => 'nilai-ku'], function () {
+
+    //     Route::get('/agama', 'NilaimuController@myScoreAgama');  
+        
+    //     Route::get('/matematika', 'NilaimuController@myScoreAgama');        
+
+    //     Route::get('/indonesia', 'NilaimuController@myScoreAgama');        
+
+    //     Route::get('/inggris', 'NilaimuController@myScoreAgama');        
+
+    //     Route::get('/produktif', 'NilaimuController@myScoreAgama');        
+
+    // });
     
     Route::group(['prefix' => 'event'], function () {
 
         Route::get('/nilai-kelas', 'NilaimuController@nilaiKelas');  
 
         Route::get('/hapus/{nama}', 'NilaimuController@deleteData');  
+
+        Route::get('sign-up', 'NilaimuController@signUp')->name('signUp');
+
+        Route::post('add-user', 'NilaimuController@addUser')->name('add');
 
         Route::group(['prefix' => 'export'], function () {
 

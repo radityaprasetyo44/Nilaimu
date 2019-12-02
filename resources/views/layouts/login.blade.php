@@ -55,7 +55,14 @@
                     }
                 }
                 </script>
-                <br>
+                <p style="
+                    width: 57.5%;
+                    text-align: right;
+                    color: #424242;
+                "><strong>Belum punya akun? <a href="/api/v1/event/sign-up" style="
+                    text-decoration: none;
+                    color: #3AC5FE;
+                ">Daftar sekarang</a></strong></p>
                 <!-- <div style="display: flex; flex-direction: row">
                 <div style="background-color: white;">
                 <input type="checkbox" onclick="myFunction()" class="check"> 

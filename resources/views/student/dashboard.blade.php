@@ -96,11 +96,11 @@ $(document).ready(function(){
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li class="active">
-                        <a href="index.html"><i class="menu-icon fa fa-laptop"></i>Dashboard </a>
+                        <a href="/api/v1/student/XIIRPL1"><i class="menu-icon fa fa-laptop"></i>Dashboard </a>
                     </li>
                     <li class="menu-title">Nilai</li><!-- /.menu-title -->
                     <li>
-                        <a href="/api/v1/nilai-ku"> <i class="menu-icon fa fa-user"></i>Nilai Ku</a>
+                        <a href="/api/v1/nilai-ku/agama"> <i class="menu-icon fa fa-user"></i>Nilai Ku</a>
                     </li>
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-list"></i>Nilai Kelas</a>
@@ -171,24 +171,21 @@ $(document).ready(function(){
             <div class="">
                     <nav>
                         <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                            <a class="nav-item nav-link active" id="custom-nav-home-tab 1" data-toggle="tab"
-                                href="#" role="tab" aria-controls="custom-nav-1" aria-selected="true">
+                            <a class="nav-item nav-link active" id="custom-nav-home-tab 1" 
+                                href="/api/v1/nilai-ku/agama" role="tab" aria-controls="custom-nav-1" aria-selected="true">
                                 Agama</a>
-                            <a class="nav-item nav-link" id="custom-nav-profile-tab 2" data-toggle="tab"
-                                href="#R2" role="tab" aria-controls="custom-nav-2"
+                            <a class="nav-item nav-link" id="custom-nav-profile-tab 2"
+                                href="/api/v1/nilai-ku/matematika" role="tab" aria-controls="custom-nav-2"
                                 aria-selected="false">Matematika</a>
-                            <a class="nav-item nav-link" id="custom-nav-contact-tab" data-toggle="tab"
-                                href="#R3" role="tab" aria-controls="custom-nav-3"
+                            <a class="nav-item nav-link" id="custom-nav-contact-tab" 
+                                href="/api/v1/nilai-ku/indonesia" role="tab" aria-controls="custom-nav-3"
                                 aria-selected="false">B. Indonesia</a>
-                            <a class="nav-item nav-link" id="custom-nav-contact-tab" data-toggle="tab"
-                                href="#R4" role="tab" aria-controls="custom-nav-4"
+                            <a class="nav-item nav-link" id="custom-nav-contact-tab" 
+                                href="/api/v1/nilai-ku/inggris" role="tab" aria-controls="custom-nav-4"
                                 aria-selected="false">B.Inggris</a>
-                            <a class="nav-item nav-link" id="custom-nav-contact-tab" data-toggle="tab"
-                                href="#R5" role="tab" aria-controls="custom-nav-5"
+                            <a class="nav-item nav-link" id="custom-nav-contact-tab" 
+                                href="/api/v1/nilai-ku/produktif" role="tab" aria-controls="custom-nav-5"
                                 aria-selected="false">Produktif</a>
-                            <a class="nav-item nav-link" id="custom-nav-contact-tab" data-toggle="tab"
-                                href="#R6" role="tab" aria-controls="custom-nav-6"
-                                aria-selected="false">PPKN</a>
                         </div>
                     </nav>
                 </div>
