@@ -104,12 +104,12 @@ $(document).ready(function(){
                     <li class="menu-item-has-children dropdown">
                         <a href="/api/v1/student" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Nilai Kelas</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-square"></i><a href="/api/v1/student/XIIRPL1">XII RPL 1</a></li>
-                            <li><i class="fa fa-square"></i><a href="/api/v1/student/XIIRPL2" value="">XII RPL 2</a></li>
-                            <li><i class="fa fa-square"></i><a href="/api/v1/student/XIIRPL3">XII RPL 3</a></li>
-                            <li><i class="fa fa-square"></i><a href="/api/v1/student/XIIRPL4">XII RPL 4</a></li>
-                            <li><i class="fa fa-square"></i><a href="/api/v1/student/XIIRPL5">XII RPL 5</a></li>
-                            <li><i class="fa fa-square"></i><a href="/api/v1/student/XIIRPL6">XII RPL 6</a></li>
+                            <li><i class="fa fa-square"></i><a href="/api/v1/student/agama/XIIRPL1" value="XIIRPL1" id="XIIRPL1">XII RPL 1</a></li>
+                            <li><i class="fa fa-square"></i><a href="/api/v1/student/agama/XIIRPL2" value="">XII RPL 2</a></li>
+                            <li><i class="fa fa-square"></i><a href="/api/v1/student/agama/XIIRPL3">XII RPL 3</a></li>
+                            <li><i class="fa fa-square"></i><a href="/api/v1/student/agama/XIIRPL4">XII RPL 4</a></li>
+                            <li><i class="fa fa-square"></i><a href="/api/v1/student/agama/XIIRPL5">XII RPL 5</a></li>
+                            <li><i class="fa fa-square"></i><a href="/api/v1/student/agama/XIIRPL6">XII RPL 6</a></li>
                         </ul>
                     </li>
 
@@ -149,7 +149,7 @@ $(document).ready(function(){
                     <div class="user-area dropdown float-right">
                         <a href="#" class="dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false">
-                            <img class="user-avatar rounded-circle" src="../../images/Fotoku.jpg" alt="User Avatar">
+                            <img class="user-avatar rounded-circle" src="{{asset('images/Fotoku.jpg')}}" alt="User Avatar">
                         </a>
 
                         <div class="user-menu dropdown-menu">

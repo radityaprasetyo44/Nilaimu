@@ -96,7 +96,7 @@ $(document).ready(function(){
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li class="active">
-                        <a href="/api/v1/student/XIIRPL1"><i class="menu-icon fa fa-laptop"></i>Dashboard </a>
+                        <a href="/api/v1/student/agama/XIIRPL1"><i class="menu-icon fa fa-laptop"></i>Dashboard </a>
                     </li>
                     <li class="menu-title">Nilai</li><!-- /.menu-title -->
                     <li>
@@ -315,6 +315,9 @@ $(document).ready(function(){
                                 <div class="col-lg-6 col-xl-12">
                                     <div class="card br-0">
                                         <div class="card-body">
+                                            <h4 class="box-title">Persentase Kelas {{$nama}}</h4>
+                                        </div>
+                                        <div class="card-body">
                                             <div class="chart-container ov-h">
                                                 <div id="flotPie1" class="float-chart"></div>
                                             </div>
@@ -323,11 +326,11 @@ $(document).ready(function(){
                                 </div>
 
                                 <div class="col-lg-6 col-xl-12">
-                                    <div class="card bg-flat-color-3  ">
+                                    <!-- <div class="card bg-flat-color-3  "> -->
                                         <div class="card-body">
                                             <div id="flotLine5" class="flot-line"></div>
                                         </div>
-                                    </div>
+                                    <!-- </div> -->
                                 </div>
 
                             </div>
@@ -342,7 +345,7 @@ $(document).ready(function(){
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="box-title">Rentang Kelas</h4>
+                                <h4 class="box-title">Rentang dan Persentase Seluruh Kelas</h4>
                             </div>
                             <div class="row">
                                 <div class="col-lg-8">
@@ -355,37 +358,37 @@ $(document).ready(function(){
                                     <div class="card-body">
                                         <div class="progress-box progress-1">
                                             <h4 class="por-title">K1</h4>
-                                            <div class="por-txt"><span class="count">{{$k['1']}}</span>%</div>
+                                            <div class="por-txt"><span class="count">{{$rata['k1']}}</span>%</div>
                                             <div class="progress mb-2" style="height: 5px;">
                                                 <div class="progress-bar bg-flat-color-1" role="progressbar"
-                                                    style="width: {{$k['1']}}%;" aria-valuenow="25" aria-valuemin="0"
+                                                    style="width: {{$rata['k1']}}%;" aria-valuenow="25" aria-valuemin="0"
                                                     aria-valuemax="100"></div>
                                             </div>
                                         </div>
                                         <div class="progress-box progress-2">
                                             <h4 class="por-title">K2</h4>
-                                            <div class="por-txt"><span class="count">{{$k['2']}}</span>%</div>
+                                            <div class="por-txt"><span class="count">{{$rata['k2']}}</span>%</div>
                                             <div class="progress mb-2" style="height: 5px;">
                                                 <div class="progress-bar bg-flat-color-2" role="progressbar"
-                                                    style="width: {{$k['2']}}%;" aria-valuenow="25" aria-valuemin="0"
+                                                    style="width: {{$rata['k2']}}%;" aria-valuenow="25" aria-valuemin="0"
                                                     aria-valuemax="100"></div>
                                             </div>
                                         </div>
                                         <div class="progress-box progress-2">
                                             <h4 class="por-title">K3</h4>
-                                            <div class="por-txt"><span class="count">{{$k['3']}}</span>%</div>
+                                            <div class="por-txt"><span class="count">{{$rata['k3']}}</span>%</div>
                                             <div class="progress mb-2" style="height: 5px;">
                                                 <div class="progress-bar bg-flat-color-3" role="progressbar"
-                                                    style="width: {{$k['3']}}%;" aria-valuenow="60" aria-valuemin="0"
+                                                    style="width: {{$rata['k3']}}%;" aria-valuenow="60" aria-valuemin="0"
                                                     aria-valuemax="100"></div>
                                             </div>
                                         </div>
                                         <div class="progress-box progress-2">
                                             <h4 class="por-title">K4</h4>
-                                            <div class="por-txt"><span class="count">{{$k['4']}}</span>%</div>
+                                            <div class="por-txt"><span class="count">{{$rata['k4']}}</span>%</div>
                                             <div class="progress mb-2" style="height: 5px;">
                                                 <div class="progress-bar bg-flat-color-4" role="progressbar"
-                                                    style="width: {{$k['4']}}%;" aria-valuenow="90" aria-valuemin="0"
+                                                    style="width: {{$rata['k4']}}%;" aria-valuenow="90" aria-valuemin="0"
                                                     aria-valuemax="100"></div>
                                             </div>
                                         </div>
@@ -402,6 +405,9 @@ $(document).ready(function(){
                 <div class="row">
                     <div class="col-lg-4 col-md-6">
                         <div class="card ov-h">
+                            <div class="card-body">
+                                <h4 class="box-title">Persentase Kelulusan di Kelas {{$nama}}</h4>
+                            </div>
                             <div id="cellPaiChart" class="float-chart"></div>
                         </div><!-- /.card -->
                     </div>
@@ -582,14 +588,14 @@ $(document).ready(function(){
             var cellPaiChart = [{
                     label: "Tidak Lulus",
                     data: [
-                        [1, 9]
+                        [1, {{$jumlah['k5']}}]
                     ],
                     color: '#5b83de'
                 },
                 {
                     label: "Lulus",
                     data: [
-                        [1, 91]
+                        [1, {{$jumlah['k25']}}]
                     ],
                     color: '#00bfa5'
                 }
@@ -660,9 +666,9 @@ $(document).ready(function(){
             // Traffic Chart using chartist
             if ($('#traffic-chart').length) {
                 var chart = new Chartist.Line('#traffic-chart', {
-                    labels: ["XIIRPL1", "XIIRPL2", "XIIRPL3", "XIIRPL4", "XIIRPL5", "XIIRPL6"],
+                    labels: ["XIIRPL1", "XIIRPL2", "XIIRPL3", "XIIRPL4", "XIIRPL5", "XIIRPL6", ""],
                     series: [
-                        [{{$k['r15']}}, {{$k['r25']}}, {{$k['r35']}}, {{$k['r45']}}, {{$k['r55']}}, {{$k['r65']}}]
+                        [{{$k['r15']}}, {{$k['r25']}}, {{$k['r35']}}, {{$k['r45']}}, {{$k['r55']}}, {{$k['r65']}}, 0]
                     ]
                 }, {
                     low: 0,

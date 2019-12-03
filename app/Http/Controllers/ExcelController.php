@@ -10,6 +10,8 @@ use Session;
 
 use App\Exports\SiswaExport;
 
+use App\Imports\SiswaImport;
+
 use App\Exports\Rpl1;
 
 use App\Exports\Rpl2;

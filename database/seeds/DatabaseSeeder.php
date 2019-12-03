@@ -14,6 +14,10 @@ class DatabaseSeeder extends Seeder
         $this->call(SiswaSeeder::class);
         $this->call(NilaiSeeder::class);
         $this->call(RplAgamaSeeder::class);
+        $this->call(RplMatematikaSeeder::class);
+        $this->call(RplIndonesiaSeeder::class);
+        $this->call(RplInggrisSeeder::class);
+        $this->call(RplProduktifSeeder::class);
         $this->call(UserNilaimuSeeder::class);
     }
 }

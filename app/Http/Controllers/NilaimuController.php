@@ -68,16 +68,16 @@ class NilaimuController extends Controller
         $k['r13'] = RplAgama::where('nama_kelas', 'XIIRPL1')->avg('K3');
         $k['r14'] = RplAgama::where('nama_kelas', 'XIIRPL1')->avg('K4');
         $k['r15'] = ($k['r11'] + $k['r12'] + $k['r13'] + $k['r14']) / 4; 
-        $jumlah['k1'] = count(RplAgama::where('nama_kelas', 'XIIRPL1')->where('K1', '<', 75)->get());
-        $jumlah['k2'] = count(RplAgama::where('nama_kelas', 'XIIRPL1')->where('K2', '<', 75)->get());
-        $jumlah['k3'] = count(RplAgama::where('nama_kelas', 'XIIRPL1')->where('K3', '<', 75)->get());
-        $jumlah['k4'] = count(RplAgama::where('nama_kelas', 'XIIRPL1')->where('K4', '<', 75)->get());
+        $jumlah['k1'] = count(RplAgama::where('nama_kelas', $nama)->where('K1', '<', 75)->get());
+        $jumlah['k2'] = count(RplAgama::where('nama_kelas', $nama)->where('K2', '<', 75)->get());
+        $jumlah['k3'] = count(RplAgama::where('nama_kelas', $nama)->where('K3', '<', 75)->get());
+        $jumlah['k4'] = count(RplAgama::where('nama_kelas', $nama)->where('K4', '<', 75)->get());
         $jumlah['k5'] = $jumlah['k1'] + $jumlah['k2'] + $jumlah['k3'] + $jumlah['k4'];
 
-        $jumlah['k21'] = count(RplAgama::where('nama_kelas', 'XIIRPL1')->where('K1', '>=', 75)->get());
-        $jumlah['k22'] = count(RplAgama::where('nama_kelas', 'XIIRPL1')->where('K2', '>=', 75)->get());
-        $jumlah['k23'] = count(RplAgama::where('nama_kelas', 'XIIRPL1')->where('K3', '>=', 75)->get());
-        $jumlah['k24'] = count(RplAgama::where('nama_kelas', 'XIIRPL1')->where('K4', '>=', 75)->get());
+        $jumlah['k21'] = count(RplAgama::where('nama_kelas', $nama)->where('K1', '>=', 75)->get());
+        $jumlah['k22'] = count(RplAgama::where('nama_kelas', $nama)->where('K2', '>=', 75)->get());
+        $jumlah['k23'] = count(RplAgama::where('nama_kelas', $nama)->where('K3', '>=', 75)->get());
+        $jumlah['k24'] = count(RplAgama::where('nama_kelas', $nama)->where('K4', '>=', 75)->get());
         $jumlah['k25'] = $jumlah['k21'] + $jumlah['k22'] + $jumlah['k23'] + $jumlah['k24'];
 
         $k['r21'] = RplAgama::where('nama_kelas', 'XIIRPL2')->avg('K1');
@@ -114,12 +114,16 @@ class NilaimuController extends Controller
         $total['k2'] = RplAgama::all()->avg('K2');
         $total['k3'] = RplAgama::all()->avg('K3');
         $total['k4'] = RplAgama::all()->avg('K4');
+        $total['k11'] = count(RplAgama::all()->avg('K1'));
+        $total['k21'] = count(RplAgama::all()->avg('K2'));
+        $total['k31'] = count(RplAgama::all()->avg('K3'));
+        $total['k41'] = count(RplAgama::all()->avg('K4'));
         $total['k5'] = $total['k1'] + $total['k2'] + $total['k3'] + $total['k4'];
 
-        $rata['k1'] = ($total['k1'] / $total['k5']) * 100;
-        $rata['k2'] = ($total['k2'] / $total['k5']) * 100;
-        $rata['k3'] = ($total['k2'] / $total['k5']) * 100;
-        $rata['k4'] = ($total['k2'] / $total['k5']) * 100;
+        $rata['k1'] = $total['k1'];
+        $rata['k2'] = $total['k2'];
+        $rata['k3'] = $total['k3'];
+        $rata['k4'] = $total['k4'];
 
         $k['5'] = $k['1'] + $k['2'] + $k['3'] + $k['4'];
         
@@ -196,21 +200,35 @@ class NilaimuController extends Controller
         $total['k3'] = RplAgama::all()->avg('K3');
         $total['k4'] = RplAgama::all()->avg('K4');
         $total['k5'] = $total['k1'] + $total['k2'] + $total['k3'] + $total['k4'];
+
+        
+        $jumlah['k1'] = count(RplAgama::where('nama_kelas', $nama)->where('K1', '<', 75)->get());
+        $jumlah['k2'] = count(RplAgama::where('nama_kelas', $nama)->where('K2', '<', 75)->get());
+        $jumlah['k3'] = count(RplAgama::where('nama_kelas', $nama)->where('K3', '<', 75)->get());
+        $jumlah['k4'] = count(RplAgama::where('nama_kelas', $nama)->where('K4', '<', 75)->get());
+        $jumlah['k5'] = $jumlah['k1'] + $jumlah['k2'] + $jumlah['k3'] + $jumlah['k4'];
+
+        $jumlah['k21'] = count(RplAgama::where('nama_kelas', $nama)->where('K1', '>=', 75)->get());
+        $jumlah['k22'] = count(RplAgama::where('nama_kelas', $nama)->where('K2', '>=', 75)->get());
+        $jumlah['k23'] = count(RplAgama::where('nama_kelas', $nama)->where('K3', '>=', 75)->get());
+        $jumlah['k24'] = count(RplAgama::where('nama_kelas', $nama)->where('K4', '>=', 75)->get());
+        $jumlah['k25'] = $jumlah['k21'] + $jumlah['k22'] + $jumlah['k23'] + $jumlah['k24'];
+
         if($total['k5'] == 0){
             $rata['k1'] = 0;
             $rata['k2'] = 0;
             $rata['k3'] = 0;
             $rata['k4'] = 0;
 
-            return view('student.dashboard', compact('nilai', 'k', 'nama', 'rata'));
+            return view('student.dashboard', compact('nilai', 'k', 'nama', 'rata', 'jumlah'));
         }
 
-        $rata['k1'] = ($total['k1'] / $total['k5']) * 100;
-        $rata['k2'] = ($total['k2'] / $total['k5']) * 100;
-        $rata['k3'] = ($total['k2'] / $total['k5']) * 100;
-        $rata['k4'] = ($total['k2'] / $total['k5']) * 100;
+        $rata['k1'] = $total['k1'];
+        $rata['k2'] = $total['k2'];
+        $rata['k3'] = $total['k3'];
+        $rata['k4'] = $total['k4'];
 
-            return view('student.dashboard', compact('nilai', 'k', 'nama', 'rata'));
+            return view('student.dashboard', compact('nilai', 'k', 'nama', 'rata', 'jumlah'));
         } else if($pelajaran == 'matematika'){
             $nilai = RplMatematika::where('nama_kelas', $nama)->paginate(5);
             $k['1'] = RplMatematika::where('nama_kelas', $nama)->avg('K1');
@@ -264,19 +282,32 @@ class NilaimuController extends Controller
         $total['k4'] = RplMatematika::all()->avg('K4');
         $total['k5'] = $total['k1'] + $total['k2'] + $total['k3'] + $total['k4'];
 
+        
+        $jumlah['k1'] = count(RplMatematika::where('nama_kelas', $nama)->where('K1', '<', 75)->get());
+        $jumlah['k2'] = count(RplMatematika::where('nama_kelas', $nama)->where('K2', '<', 75)->get());
+        $jumlah['k3'] = count(RplMatematika::where('nama_kelas', $nama)->where('K3', '<', 75)->get());
+        $jumlah['k4'] = count(RplMatematika::where('nama_kelas', $nama)->where('K4', '<', 75)->get());
+        $jumlah['k5'] = $jumlah['k1'] + $jumlah['k2'] + $jumlah['k3'] + $jumlah['k4'];
+
+        $jumlah['k21'] = count(RplMatematika::where('nama_kelas', $nama)->where('K1', '>=', 75)->get());
+        $jumlah['k22'] = count(RplMatematika::where('nama_kelas', $nama)->where('K2', '>=', 75)->get());
+        $jumlah['k23'] = count(RplMatematika::where('nama_kelas', $nama)->where('K3', '>=', 75)->get());
+        $jumlah['k24'] = count(RplMatematika::where('nama_kelas', $nama)->where('K4', '>=', 75)->get());
+        $jumlah['k25'] = $jumlah['k21'] + $jumlah['k22'] + $jumlah['k23'] + $jumlah['k24'];
+
         if($total['k5'] == 0){
             $rata['k1'] = 0;
             $rata['k2'] = 0;
             $rata['k3'] = 0;
             $rata['k4'] = 0;
 
-            return view('student.dashboard', compact('nilai', 'k', 'nama', 'rata'));
+            return view('student.dashboard', compact('nilai', 'k', 'nama', 'rata', 'jumlah'));
         }
-        $rata['k1'] = ($total['k1'] / $total['k5']) * 100;
-        $rata['k2'] = ($total['k2'] / $total['k5']) * 100;
-        $rata['k3'] = ($total['k2'] / $total['k5']) * 100;
-        $rata['k4'] = ($total['k2'] / $total['k5']) * 100;
-            return view('student.dashboard', compact('nilai', 'k', 'nama', 'rata'));
+        $rata['k1'] = $total['k1'];
+        $rata['k2'] = $total['k2'];
+        $rata['k3'] = $total['k3'];
+        $rata['k4'] = $total['k4'];
+            return view('student.dashboard', compact('nilai', 'k', 'nama', 'rata', 'jumlah'));
         } else if($pelajaran == 'indonesia'){
         $nilai = RplIndonesia::where('nama_kelas', $nama)->paginate(5);
         $k['1'] = RplIndonesia::where('nama_kelas', $nama)->avg('K1');
@@ -326,20 +357,33 @@ class NilaimuController extends Controller
         $total['k4'] = RplIndonesia::all()->avg('K4');
         $total['k5'] = $total['k1'] + $total['k2'] + $total['k3'] + $total['k4'];
 
+        
+        $jumlah['k1'] = count(RplIndonesia::where('nama_kelas', $nama)->where('K1', '<', 75)->get());
+        $jumlah['k2'] = count(RplIndonesia::where('nama_kelas', $nama)->where('K2', '<', 75)->get());
+        $jumlah['k3'] = count(RplIndonesia::where('nama_kelas', $nama)->where('K3', '<', 75)->get());
+        $jumlah['k4'] = count(RplIndonesia::where('nama_kelas', $nama)->where('K4', '<', 75)->get());
+        $jumlah['k5'] = $jumlah['k1'] + $jumlah['k2'] + $jumlah['k3'] + $jumlah['k4'];
+
+        $jumlah['k21'] = count(RplIndonesia::where('nama_kelas', $nama)->where('K1', '>=', 75)->get());
+        $jumlah['k22'] = count(RplIndonesia::where('nama_kelas', $nama)->where('K2', '>=', 75)->get());
+        $jumlah['k23'] = count(RplIndonesia::where('nama_kelas', $nama)->where('K3', '>=', 75)->get());
+        $jumlah['k24'] = count(RplIndonesia::where('nama_kelas', $nama)->where('K4', '>=', 75)->get());
+        $jumlah['k25'] = $jumlah['k21'] + $jumlah['k22'] + $jumlah['k23'] + $jumlah['k24'];
+
         if($total['k5'] == 0){
             $rata['k1'] = 0;
             $rata['k2'] = 0;
             $rata['k3'] = 0;
             $rata['k4'] = 0;
 
-            return view('student.dashboard', compact('nilai', 'k', 'nama', 'rata'));
+            return view('student.dashboard', compact('nilai', 'k', 'nama', 'rata', 'jumlah'));
         }
 
-        $rata['k1'] = ($total['k1'] / $total['k5']) * 100;
-        $rata['k2'] = ($total['k2'] / $total['k5']) * 100;
-        $rata['k3'] = ($total['k2'] / $total['k5']) * 100;
-        $rata['k4'] = ($total['k2'] / $total['k5']) * 100;
-            return view('student.dashboard', compact('nilai', 'k', 'nama', 'rata'));
+        $rata['k1'] = $total['k1'];
+        $rata['k2'] = $total['k2'];
+        $rata['k3'] = $total['k3'];
+        $rata['k4'] = $total['k4'];
+            return view('student.dashboard', compact('nilai', 'k', 'nama', 'rata', 'jumlah'));
         } else if($pelajaran == 'inggris'){
         $nilai = RplInggris::where('nama_kelas', $nama)->paginate(5);
         $k['1'] = RplInggris::where('nama_kelas', $nama)->avg('K1');
@@ -389,20 +433,33 @@ class NilaimuController extends Controller
         $total['k4'] = RplInggris::all()->avg('K4');
         $total['k5'] = $total['k1'] + $total['k2'] + $total['k3'] + $total['k4'];
 
+        
+        $jumlah['k1'] = count(RplInggris::where('nama_kelas', $nama)->where('K1', '<', 75)->get());
+        $jumlah['k2'] = count(RplInggris::where('nama_kelas', $nama)->where('K2', '<', 75)->get());
+        $jumlah['k3'] = count(RplInggris::where('nama_kelas', $nama)->where('K3', '<', 75)->get());
+        $jumlah['k4'] = count(RplInggris::where('nama_kelas', $nama)->where('K4', '<', 75)->get());
+        $jumlah['k5'] = $jumlah['k1'] + $jumlah['k2'] + $jumlah['k3'] + $jumlah['k4'];
+
+        $jumlah['k21'] = count(RplInggris::where('nama_kelas', $nama)->where('K1', '>=', 75)->get());
+        $jumlah['k22'] = count(RplInggris::where('nama_kelas', $nama)->where('K2', '>=', 75)->get());
+        $jumlah['k23'] = count(RplInggris::where('nama_kelas', $nama)->where('K3', '>=', 75)->get());
+        $jumlah['k24'] = count(RplInggris::where('nama_kelas', $nama)->where('K4', '>=', 75)->get());
+        $jumlah['k25'] = $jumlah['k21'] + $jumlah['k22'] + $jumlah['k23'] + $jumlah['k24'];
+
         if($total['k5'] == 0){
             $rata['k1'] = 0;
             $rata['k2'] = 0;
             $rata['k3'] = 0;
             $rata['k4'] = 0;
 
-            return view('student.dashboard', compact('nilai', 'k', 'nama', 'rata'));
+            return view('student.dashboard', compact('nilai', 'k', 'nama', 'rata', 'jumlah'));
         }
 
-        $rata['k1'] = ($total['k1'] / $total['k5']) * 100;
-        $rata['k2'] = ($total['k2'] / $total['k5']) * 100;
-        $rata['k3'] = ($total['k2'] / $total['k5']) * 100;
-        $rata['k4'] = ($total['k2'] / $total['k5']) * 100;
-            return view('student.dashboard', compact('nilai', 'k', 'nama', 'rata'));
+        $rata['k1'] = $total['k1'];
+        $rata['k2'] = $total['k2'];
+        $rata['k3'] = $total['k3'];
+        $rata['k4'] = $total['k4'];
+            return view('student.dashboard', compact('nilai', 'k', 'nama', 'rata', 'jumlah'));
         } else {
             $nilai = RplProduktif::where('nama_kelas', $nama)->paginate(5);
             $k['1'] = RplProduktif::where('nama_kelas', $nama)->avg('K1');
@@ -452,20 +509,33 @@ class NilaimuController extends Controller
         $total['k4'] = RplProduktif::all()->avg('K4');
         $total['k5'] = $total['k1'] + $total['k2'] + $total['k3'] + $total['k4'];
 
+        
+        $jumlah['k1'] = count(RplProduktif::where('nama_kelas', $nama)->where('K1', '<', 75)->get());
+        $jumlah['k2'] = count(RplProduktif::where('nama_kelas', $nama)->where('K2', '<', 75)->get());
+        $jumlah['k3'] = count(RplProduktif::where('nama_kelas', $nama)->where('K3', '<', 75)->get());
+        $jumlah['k4'] = count(RplProduktif::where('nama_kelas', $nama)->where('K4', '<', 75)->get());
+        $jumlah['k5'] = $jumlah['k1'] + $jumlah['k2'] + $jumlah['k3'] + $jumlah['k4'];
+
+        $jumlah['k21'] = count(RplProduktif::where('nama_kelas', $nama)->where('K1', '>=', 75)->get());
+        $jumlah['k22'] = count(RplProduktif::where('nama_kelas', $nama)->where('K2', '>=', 75)->get());
+        $jumlah['k23'] = count(RplProduktif::where('nama_kelas', $nama)->where('K3', '>=', 75)->get());
+        $jumlah['k24'] = count(RplProduktif::where('nama_kelas', $nama)->where('K4', '>=', 75)->get());
+        $jumlah['k25'] = $jumlah['k21'] + $jumlah['k22'] + $jumlah['k23'] + $jumlah['k24'];
+
         if($total['k5'] == 0){
             $rata['k1'] = 0;
             $rata['k2'] = 0;
             $rata['k3'] = 0;
             $rata['k4'] = 0;
 
-            return view('student.dashboard', compact('nilai', 'k', 'nama', 'rata'));
+            return view('student.dashboard', compact('nilai', 'k', 'nama', 'rata', 'jumlah'));
         }
 
-        $rata['k1'] = ($total['k1'] / $total['k5']) * 100;
-        $rata['k2'] = ($total['k2'] / $total['k5']) * 100;
-        $rata['k3'] = ($total['k2'] / $total['k5']) * 100;
-        $rata['k4'] = ($total['k2'] / $total['k5']) * 100;
-            return view('student.dashboard', compact('nilai', 'k', 'nama', 'rata'));
+        $rata['k1'] = $total['k1'];
+        $rata['k2'] = $total['k2'];
+        $rata['k3'] = $total['k3'];
+        $rata['k4'] = $total['k4'];
+            return view('student.dashboard', compact('nilai', 'k', 'nama', 'rata', 'jumlah'));
         }
     }
 

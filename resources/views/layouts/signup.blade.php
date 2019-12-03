@@ -33,7 +33,7 @@
 
             <div class="col" style="margin-left: -8%;">
                 <img src="{{ asset('images/logoWithText.svg') }}" alt=""
-                    style="margin-top: 5%;width: 30vw;height: 20vh;margin-left: -22%">
+                    style="margin-top: 4.5%;width: 30vw;height: 20vh;margin-left: -22%">
                 <h1 style="font-size: 1.85rem; color: #424242;"><strong>Selamat Datang, Silahkan Daftar!</strong></h1>
                 <br>
                 <form action="/api/v1/event/add-user" method="post">
@@ -87,6 +87,14 @@
                         }
 
                     </script>
+                    <p style="
+                    width: 57.5%;
+                    text-align: right;
+                    color: #424242;
+                "><strong>Sudah punya akun? <a href="/api/v1/auth/login" style="
+                    text-decoration: none;
+                    color: #3AC5FE;
+                ">Masuk sekarang</a></strong></p>
                     <!-- <div style="display: flex; flex-direction: row">
                 <div style="background-color: white;">
                 <input type="checkbox" onclick="myFunction()" class="check"> 
