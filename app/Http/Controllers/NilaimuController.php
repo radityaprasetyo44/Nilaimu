@@ -68,6 +68,17 @@ class NilaimuController extends Controller
         $k['r13'] = RplAgama::where('nama_kelas', 'XIIRPL1')->avg('K3');
         $k['r14'] = RplAgama::where('nama_kelas', 'XIIRPL1')->avg('K4');
         $k['r15'] = ($k['r11'] + $k['r12'] + $k['r13'] + $k['r14']) / 4; 
+        $jumlah['k1'] = count(RplAgama::where('nama_kelas', 'XIIRPL1')->where('K1', '<', 75)->get());
+        $jumlah['k2'] = count(RplAgama::where('nama_kelas', 'XIIRPL1')->where('K2', '<', 75)->get());
+        $jumlah['k3'] = count(RplAgama::where('nama_kelas', 'XIIRPL1')->where('K3', '<', 75)->get());
+        $jumlah['k4'] = count(RplAgama::where('nama_kelas', 'XIIRPL1')->where('K4', '<', 75)->get());
+        $jumlah['k5'] = $jumlah['k1'] + $jumlah['k2'] + $jumlah['k3'] + $jumlah['k4'];
+
+        $jumlah['k21'] = count(RplAgama::where('nama_kelas', 'XIIRPL1')->where('K1', '>=', 75)->get());
+        $jumlah['k22'] = count(RplAgama::where('nama_kelas', 'XIIRPL1')->where('K2', '>=', 75)->get());
+        $jumlah['k23'] = count(RplAgama::where('nama_kelas', 'XIIRPL1')->where('K3', '>=', 75)->get());
+        $jumlah['k24'] = count(RplAgama::where('nama_kelas', 'XIIRPL1')->where('K4', '>=', 75)->get());
+        $jumlah['k25'] = $jumlah['k21'] + $jumlah['k22'] + $jumlah['k23'] + $jumlah['k24'];
 
         $k['r21'] = RplAgama::where('nama_kelas', 'XIIRPL2')->avg('K1');
         $k['r22'] = RplAgama::where('nama_kelas', 'XIIRPL2')->avg('K2');
@@ -110,7 +121,23 @@ class NilaimuController extends Controller
         $rata['k3'] = ($total['k2'] / $total['k5']) * 100;
         $rata['k4'] = ($total['k2'] / $total['k5']) * 100;
 
-        return view('teacher.dashboard', compact('nilai', 'k', 'nama', 'rata'));
+        $k['5'] = $k['1'] + $k['2'] + $k['3'] + $k['4'];
+        
+        if($k['5'] == 0){
+            $k['111'] = 0;
+            $k['112'] = 0;
+            $k['113'] = 0;
+            $k['114'] = 0;
+
+            return view('teacher.dashboard', compact('nilai', 'k', 'nama', 'rata', 'jumlah'));
+        }
+
+        $k['111'] = ($k['1'] / $k['5']) * 100;
+        $k['112'] = ($k['2'] / $k['5']) * 100;
+        $k['113'] = ($k['3'] / $k['5']) * 100;
+        $k['114'] = ($k['4'] / $k['5']) * 100;
+
+        return view('teacher.dashboard', compact('nilai', 'k', 'nama', 'rata', 'jumlah'));
     }
 
     public function nilaiKelas()
@@ -251,11 +278,11 @@ class NilaimuController extends Controller
         $rata['k4'] = ($total['k2'] / $total['k5']) * 100;
             return view('student.dashboard', compact('nilai', 'k', 'nama', 'rata'));
         } else if($pelajaran == 'indonesia'){
-            $nilai = RplIndonesia::where('nama_kelas', $nama)->paginate(5);
-            $k['1'] = RplIndonesia::where('nama_kelas', $nama)->avg('K1');
-            $k['2'] = RplIndonesia::where('nama_kelas', $nama)->avg('K2');
-            $k['3'] = RplIndonesia::where('nama_kelas', $nama)->avg('K3');
-            $k['4'] = RplIndonesia::where('nama_kelas', $nama)->avg('K4');
+        $nilai = RplIndonesia::where('nama_kelas', $nama)->paginate(5);
+        $k['1'] = RplIndonesia::where('nama_kelas', $nama)->avg('K1');
+        $k['2'] = RplIndonesia::where('nama_kelas', $nama)->avg('K2');
+        $k['3'] = RplIndonesia::where('nama_kelas', $nama)->avg('K3');
+        $k['4'] = RplIndonesia::where('nama_kelas', $nama)->avg('K4');
 
         $k['r11'] = RplIndonesia::where('nama_kelas', 'XIIRPL1')->avg('K1');
         $k['r12'] = RplIndonesia::where('nama_kelas', 'XIIRPL1')->avg('K2');
@@ -314,13 +341,13 @@ class NilaimuController extends Controller
         $rata['k4'] = ($total['k2'] / $total['k5']) * 100;
             return view('student.dashboard', compact('nilai', 'k', 'nama', 'rata'));
         } else if($pelajaran == 'inggris'){
-            $nilai = RplInggris::where('nama_kelas', $nama)->paginate(5);
-            $k['1'] = RplInggris::where('nama_kelas', $nama)->avg('K1');
-            $k['2'] = RplInggris::where('nama_kelas', $nama)->avg('K2');
-            $k['3'] = RplInggris::where('nama_kelas', $nama)->avg('K3');
-            $k['4'] = RplInggris::where('nama_kelas', $nama)->avg('K4');
+        $nilai = RplInggris::where('nama_kelas', $nama)->paginate(5);
+        $k['1'] = RplInggris::where('nama_kelas', $nama)->avg('K1');
+        $k['2'] = RplInggris::where('nama_kelas', $nama)->avg('K2');
+        $k['3'] = RplInggris::where('nama_kelas', $nama)->avg('K3');
+        $k['4'] = RplInggris::where('nama_kelas', $nama)->avg('K4');
 
-            $k['r11'] = RplInggris::where('nama_kelas', 'XIIRPL1')->avg('K1');
+        $k['r11'] = RplInggris::where('nama_kelas', 'XIIRPL1')->avg('K1');
         $k['r12'] = RplInggris::where('nama_kelas', 'XIIRPL1')->avg('K2');
         $k['r13'] = RplInggris::where('nama_kelas', 'XIIRPL1')->avg('K3');
         $k['r14'] = RplInggris::where('nama_kelas', 'XIIRPL1')->avg('K4');

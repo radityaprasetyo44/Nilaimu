@@ -454,6 +454,9 @@
                 <div class="row">
                     <div class="col-lg-4 col-md-6">
                         <div class="card ov-h">
+                            <div class="card-body">
+                                <h4 class="box-title">Persentase Kelulusan</h4>
+                            </div>
                             <div id="cellPaiChart" class="float-chart"></div>
                         </div><!-- /.card -->
                     </div>
@@ -578,28 +581,28 @@
             var piedata = [{
                     label: "Kompetensi 1  .",
                     data: [
-                        [1, {{$rata['k1']}}]
+                        [1, {{$k['111']}}]
                     ],
                     color: '#5c6bc0'
                 },
                 {
                     label: "Kompetensi 2",
                     data: [
-                        [1, {{$rata['k2']}}]
+                        [1, {{$k['112']}}]
                     ],
                     color: '#ef5350'
                 },
                 {
                     label: "Kompetensi 3",
                     data: [
-                        [1, {{$rata['k3']}}]
+                        [1, {{$k['113']}}]
                     ],
                     color: '#66bb6a'
                 },
                 {
                     label: "Kompetensi 4",
                     data: [
-                        [1, {{$rata['k4']}}]
+                        [1, {{$k['114']}}]
                     ],
                     color: '#ff6600'
                 }
@@ -631,14 +634,14 @@
             var cellPaiChart = [{
                     label: "Tidak Lulus",
                     data: [
-                        [1, 9]
+                        [1, {{$jumlah['k5']}}]
                     ],
                     color: '#5b83de'
                 },
                 {
                     label: "Lulus",
                     data: [
-                        [1, 91]
+                        [1, {{$jumlah['k25']}}]
                     ],
                     color: '#00bfa5'
                 }
@@ -709,7 +712,7 @@
             // Traffic Chart using chartist
             if ($('#traffic-chart').length) {
                 var chart = new Chartist.Line('#traffic-chart', {
-                    labels: ["XIIRPL1", "XIIRPL2", "XIIRPL3", "XIIRPL4", "XIIRPL5", "XIIRPL6"],
+                    labels: ["XIIRPL1", "XIIRPL2", "XIIRPL3", "XIIRPL4", "XIIRPL5", "XIIRPL6", ""],
                     series: [
                         [{{$k['r15']}}, {{$k['r25']}}, {{$k['r35']}}, {{$k['r45']}}, {{$k['r55']}}, {{$k['r65']}}],
                     ]
